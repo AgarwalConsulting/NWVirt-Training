@@ -6,8 +6,6 @@ layout: true
 
 class: center, middle
 
-![Logo](assets/images/cilium-logo.svg)
-
 # Network Virtualization
 
 Gaurav Agarwal
