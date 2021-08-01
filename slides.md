@@ -469,6 +469,11 @@ OSI model acts as a reference model and is not implemented in the Internet becau
 ---
 class: center, middle
 
+## Local installation & Setup
+
+---
+class: center, middle
+
 ## Internet protocol suite
 
 ---
@@ -585,6 +590,11 @@ When we compare TCP vs UDP protocol, TCP is heavy-weight, and UDP is lightweight
 ---
 class: center, middle
 
+![TCP vs UDP](assets/images/tcp-vs-udp.png)
+
+---
+class: center, middle
+
 *Demo*: Echo TCP/UDP Server
 
 ---
@@ -650,11 +660,31 @@ class: center, middle
 ---
 class: center, middle
 
+MAC addresses are recognizable as six groups of two hexadecimal digits, separated by hyphens, colons, or without a separator.
+
+---
+class: center, middle
+
+Duplicate MAC Addresses separated by one or more routers is not a problem since the two devices won’t see each other and will use the router to communicate.
+
+---
+class: center, middle
+
 ### Anatomy of a network packet
 
 ![Anatomy of network packet](assets/images/anatomy-of-network-packet.png)
 
 .content-credits[https://www.tigera.io/lp/kubernetes-networking-ebook/]
+
+---
+class: center, middle
+
+### Internet Protocol Suite fitted onto...
+
+---
+class: center, middle
+
+![IP OSI](assets/images/osi-model-7-layers.jpg)
 
 ---
 class: center, middle
@@ -667,7 +697,289 @@ class: center, middle
 ## IP Addressing
 
 ---
+class: center, middle
 
+### IPAM (IP Address Management)
+
+---
+class: center, middle
+
+IPAM (IP Address Management) is the administration of DNS and DHCP, which are the network services that assign and resolve IP addresses to machines in a TCP/IP network.
+
+---
+class: center, middle
+
+Simply put, IPAM is a means of planning, tracking, and managing the Internet Protocol address space used in a network.
+
+---
+class: center, middle
+
+Most commonly, tools such as DNS and DHCP are used in tandem to perform this task, though true IPAM will glue these services together so that each is aware of changes in the other (for instance DNS knowing of the IP address taken by a client via DHCP, and updating itself accordingly).
+
+---
+class: center, middle
+
+### DHCP (Dynamic Host Configuration Protocol)
+
+---
+class: center, middle
+
+Eliminates the need for individually configuring network devices manually.
+
+---
+class: center, middle
+
+### IPv4
+
+---
+class: center, middle
+
+`IPv4` uses a 32-bit address space...
+
+---
+class: center, middle
+
+... which provides 4,294,967,296 (2ˆ32) unique addresses.
+
+---
+class: center, middle
+
+### CIDR (Classless Inter-Domain Routing)
+
+---
+class: center, middle
+
+Classless inter-domain routing (CIDR) is a set of Internet protocol (IP) standards that is used to create unique identifiers for networks and individual devices.
+
+---
+
+#### CIDR Refresher
+
+- 10.0.0.0/8
+
+- 192.168.0.0/16
+
+- 172.16.0.0/12
+
+- 169.254.0.0/16
+
+What do these values mean?
+
+---
+class: center, middle
+
+A subnetwork or *subnet* is a logical subdivision of an IP network.
+
+---
+class: center, middle
+
+`IPv4` reserves special address blocks for private networks (~18 million addresses) and multicast addresses (~270 million addresses).
+
+---
+class: center, middle
+
+A multicast address enables a device to send a datagram to a specified set of hosts, known as a multicast group, in different subnetworks.
+
+---
+class: center, middle
+
+The multicast addresses are in the range `224.0.0.0` through `239.255.255.255`.
+
+---
+
+##### Private IPv4 ranges
+
+- **10.0.0.0/8**
+
+- **192.168.0.0/16**
+
+- **172.16.0.0/12**
+
+---
+
+*DHCP* consists of two network components:
+
+- a centrally installed network DHCP server
+
+- client instances of the protocol stack on each computer or device
+
+---
+class: center, middle
+
+DHCP services exist for networks running Internet Protocol version 4 (IPv4), as well as version 6 (IPv6). The IPv6 version of the DHCP protocol is commonly called DHCPv6.
+
+---
+class: center, middle
+
+### NAT (Network address translation)
+
+---
+class: center, middle
+
+allow multiple devices to access the Internet through a single public address
+
+---
+
+- Hiding internal IP addresses from public knowledge
+
+- Converting an IP address for an internal host into a different IP address
+
+- Making the IP addresses of two different networks compatible
+
+---
+
+- Static (map) NAT
+
+- Masquerade (hide) NAT
+
+- Masquerade (port-mapped) NAT
+
+---
+class: center, middle
+
+Static (map) network address translation (NAT) provides a one-to-one mapping of private IP addresses to public IP addresses. It allows you to map an IP address on your internal network to an IP address that you want to make public.
+
+---
+class: center, middle
+
+Masquerade (hide) network address translation (NAT) enables you to hide the actual address of a personal computer private. NAT routes traffic from your personal computer to your system, which essentially makes the system the gateway for your personal computer.
+
+---
+class: center, middle
+
+In port-mapped NAT, you can specify both the IP address and the port number to translate. This enables both your internal personal computer and the external workstation to initiate IP traffic. You can use port-mapped NAT if the external workstation (or client) needs to access workstations or systems inside your network. Only IP traffic that matches both the IP address and the port number is allowed to access.
+
+---
+class: center, middle
+
+### IPv6
+
+---
+class: center, middle
+
+`IPv6` uses a 128-bit address, theoretically allowing 2ˆ128, or approximately 3.4×1038 addresses.
+
+---
+class: center, middle
+
+`IPv6` addresses are represented as eight groups, separated by colons, of four hexadecimal digits.
+
+---
+class: center, middle
+
+### DNS
+
+---
+class: center, middle
+
+The Domain Name System (DNS) is the phonebook of the Internet. Humans access information online through domain names.
+
+---
+class: center, middle
+
+Domain Name System (DNS) is a hierarchical and decentralized naming system for computers, services, or other resources connected to the Internet or a private network.
+
+---
+class: center, middle
+
+#### DNS server
+
+---
+class: center, middle
+
+#### Record types
+
+---
+
+- A (Host address)
+
+- AAAA (IPv6 host address)
+
+- ALIAS (Auto resolved alias)
+
+- CNAME (Canonical name for an alias)
+
+- MX (Mail eXchange)
+
+- NS (Name Server)
+
+- PTR (Pointer)
+
+- SOA (Start Of Authority)
+
+- SRV (location of service)
+
+- TXT (Descriptive text)
+
+---
+class: center, middle
+
+And these were just the more common ones!
+
+.content-credits[https://simpledns.plus/help/dns-record-types]
+
+---
+
+The 8 steps in a DNS lookup:
+
+- A user types ‘example.com’ into a web browser and the query travels into the Internet and is received by a DNS recursive resolver.
+
+- The resolver then queries a DNS root nameserver (.).
+
+- The root server then responds to the resolver with the address of a Top Level Domain (TLD) DNS server (such as .com or .net), which stores the information for its domains. When searching for example.com, our request is pointed toward the .com TLD.
+
+- The resolver then makes a request to the .com TLD.
+
+- The TLD server then responds with the IP address of the domain’s nameserver, example.com.
+
+- Lastly, the recursive resolver sends a query to the domain’s nameserver.
+
+- The IP address for example.com is then returned to the resolver from the nameserver.
+
+- The DNS resolver then responds to the web browser with the IP address of the domain requested initially.
+
+---
+class: center, middle
+
+#### DNS caching
+
+---
+class: center, middle
+
+*Demo*: Namecheap DNS
+
+---
+class: center, middle
+
+## IP Routing
+
+---
+class: center, middle
+
+IP Routing is an umbrella term for the set of protocols that determine the path that data follows in order to travel across multiple networks from its source to its destination.
+
+---
+
+- Data is routed from its source to its destination through a series of routers, and across multiple networks.
+
+- The IP Routing protocols enable routers to build up a forwarding table that correlates final destinations with next hop addresses.
+
+---
+
+These protocols include:
+
+- BGP (Border Gateway Protocol)
+
+- IS-IS (Intermediate System - Intermediate System)
+
+- OSPF (Open Shortest Path First)
+
+- RIP (Routing Information Protocol)
+
+---
+class: center, middle
+
+When an IP packet is to be forwarded, a router uses its forwarding table to determine the next hop for the packet's destination address, and forwards the packet appropriately.
 
 ---
 class: center, middle
