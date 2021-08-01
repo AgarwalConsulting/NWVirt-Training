@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 # Install dependencies
 sudo apt-get install -y libpcap-dev
 
@@ -11,7 +13,7 @@ sudo git remote add netasm-patch https://github.com/PrincetonUniversity/pox
 sudo git pull netasm-patch carp
 
 # Install pxpcap
-cd ~/pox/pox/lib/pxpcap/pxpcap_c/ 
+cd ~/pox/pox/lib/pxpcap/pxpcap_c/
 sudo ./build_linux
 
 # Clone NetASM

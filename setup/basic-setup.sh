@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 # install packages
 sudo apt-get update
 

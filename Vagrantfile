@@ -24,7 +24,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Guest Config
   config.vm.hostname = "coursera-sdn"
-  config.vm.network :private_network, ip: "192.168.0.100"
+  # config.vm.network :private_network, ip: "192.168.0.100"
+  config.vm.network :private_network, ip: "172.16.0.100"
   config.vm.network :forwarded_port, guest:6633, host:6635 # forwarding of port
 
   ## CPU & RAM
@@ -40,16 +41,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   ## We will update the Vagrantfile as the course progresses and students will
   ## need additional installations to complete the assignments.
 
-  config.vm.provision :shell, privileged: false, :path => "setup/pre-setup.sh"
-  #config.vm.provision :shell, privileged: false, :path => "setup/ryu-setup.sh"
-  #config.vm.provision :shell, privileged: false, :path => "setup/p4-setup.sh"
-  #config.vm.provision :shell, privileged: false, :path => "setup/netasm-setup.sh"
+  config.vm.provision :shell, privileged: false, :path => "setup/basic-setup.sh"
+
   config.vm.provision :shell, privileged: false, :path => "setup/ovs-setup.sh"
   config.vm.provision :shell, privileged: false, :path => "setup/mininet-setup.sh"
   config.vm.provision :shell, privileged: false, :path => "setup/sdx-setup.sh"
-  #config.vm.provision :shell, privileged: false, :path => "setup/kinetic-setup.sh"
+  # config.vm.provision :shell, privileged: false, :path => "setup/kinetic-setup.sh"
+
+  # config.vm.provision :shell, privileged: false, :path => "setup/ryu-setup.sh"
+  # config.vm.provision :shell, privileged: false, :path => "setup/p4-setup.sh"
+  # config.vm.provision :shell, privileged: false, :path => "setup/netasm-setup.sh"
+
+  # config.vm.provision :shell, privileged: true, :path => "setup/docker-setup.sh"
 
   ## SSH config
   config.ssh.forward_x11 = true
-
 end

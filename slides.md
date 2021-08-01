@@ -146,7 +146,14 @@ class: center, middle
 *Yay's - in Chat*
 
 ---
+class: center, middle
 
+Let's chart with the OSI Model...
+
+---
+class: center, middle
+
+![OSI Model Simple](assets/images/osi-simple.png)
 
 ---
 class: center, middle

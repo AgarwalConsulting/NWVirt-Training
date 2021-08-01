@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 # Dependencies install
 cd ~
 sudo apt-get install -y python-dev screen hping3
@@ -18,10 +20,10 @@ popd
 rm -rf git
 
 # Pyretic installation
-cd ~  
+cd ~
 git clone git://github.com/frenetic-lang/pyretic.git
 
-export PATH=$PATH:$HOME/pyretic:$HOME/pox  
+export PATH=$PATH:$HOME/pyretic:$HOME/pox
 export PYTHONPATH=$HOME/pyretic:$HOME/mininet:$HOME/pox
 
 echo "export PATH=$PATH:$HOME/pyretic:$HOME/pox" >> ~/.bash_profile

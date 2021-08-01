@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 #  Dependencies for ryu
 sudo apt-get install -y python-routes
 sudo pip install oslo.config --upgrade

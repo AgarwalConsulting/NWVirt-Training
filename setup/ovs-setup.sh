@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 wget http://openvswitch.org/releases/openvswitch-2.3.0.tar.gz
 tar xf openvswitch-2.3.0.tar.gz
 pushd openvswitch-2.3.0
