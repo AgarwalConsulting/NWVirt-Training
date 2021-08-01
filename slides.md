@@ -699,7 +699,7 @@ class: center, middle
 ---
 class: center, middle
 
-### IPAM (IP Address Management)
+## ~~IP Addressing~~ IPAM (IP Address Management)
 
 ---
 class: center, middle
