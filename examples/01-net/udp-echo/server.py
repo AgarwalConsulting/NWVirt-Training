@@ -10,4 +10,4 @@ with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as serverSock:
 
     while True:
         data, addr = serverSock.recvfrom(1024)
-        print "Message: ", data
+        print("Message: ", data)
