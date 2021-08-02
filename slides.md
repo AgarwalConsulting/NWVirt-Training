@@ -1058,6 +1058,13 @@ It is any traffic coming to a data center, or going out of it to another system.
 ---
 class: center, middle
 
+![NS vs EW traffic](assets/images/NS-vs-EW-traffic.png)
+
+.image-credits[https://blog.gigamon.com/2016/10/04/visibility-is-the-best-disinfectant-for-ransomware/]
+
+---
+class: center, middle
+
 #### Switch
 
 ---
@@ -1133,11 +1140,68 @@ EGP has three major functions:
 ---
 class: center, middle
 
-## Need for SDN
+During the early days of the Internet, EGP was frequently used by research institutes, universities, government agencies and private organizations, to interconnect autonomous systems but was replaced by Border Gateway Protocol (BGP).
+
+---
+class: center, middle
+
+## SDN
+
+---
+class: center, middle
+
+Software-defined networking technology is an approach to network management that enables dynamic, programmatically efficient network configuration in order to improve network performance and monitoring, making it more like cloud computing than traditional network management.
+
+---
+class: center, middle
+
+### Active Networks (Historical)
+
+---
+class: center, middle
+
+Active networks are networks where the switches perform custom computations on packets, as the packets travel through those switches.
 
 ---
 
+- Every router in the network performing some kind of tracing, or a program, on the packets as they travel through the routers
 
+- Boxes in the network that perform firewalling function, proxying, application services and so forth
+
+---
+class: center, middle
+
+2 different approaches to active networks.
+
+---
+class: center, middle
+
+The first was a rather extreme approach, and that was essentially that every message, or every packet actually carried a program.
+
+---
+class: center, middle
+
+Second, you can have programmable switches, that would, where code would be installed. These programmable switches then, would perform custom operations of processing functions, on packets, depending on values in the packet header field.
+
+---
+class: center, middle
+
+### Need for SDN
+
+---
+
+- Central Control
+
+- Programmability
+
+- Observability
+
+- Reduced costs
+
+---
+class: center, middle
+
+a single network wide vantage point could allow operators to directly observe rather than infer network wide behavior, and importantly, evolve the infrastructure data and services independently from one another.
 
 ---
 class: center, middle
