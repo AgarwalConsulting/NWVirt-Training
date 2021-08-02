@@ -148,7 +148,7 @@ class: center, middle
 ---
 class: center, middle
 
-Let's chart with...
+Let's start with...
 
 ---
 class: center, middle
@@ -428,6 +428,8 @@ Functions of the presentation layer are:
 - Translation
 
 - Encryption/ Decryption
+
+- Compression
 
 ---
 class: center, middle
