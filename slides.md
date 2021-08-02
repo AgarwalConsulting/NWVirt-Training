@@ -986,6 +986,162 @@ When an IP packet is to be forwarded, a router uses its forwarding table to dete
 ---
 class: center, middle
 
+### Terminology
+
+---
+class: center, middle
+
+#### AS (Autonomous System)
+
+---
+class: center, middle
+
+The Internet, for the purpose of routing, is divided into Autonomous Systems (ASs).
+
+---
+class: center, middle
+
+An AS is a group of routers that are under the control of a single administration and exchange routing information using a common routing protocol.
+
+---
+class: center, middle
+
+*An autonomous system (AS) is a collection of connected Internet Protocol (IP) routing prefixes under the control of one or more network operators on behalf of a single administrative entity or *domain*, that presents a common and clearly defined routing policy to the Internet.*
+
+---
+class: center, middle
+
+#### Ingress / Egress
+
+---
+class: center, middle
+
+Ingress traffic is composed of all the data communications and network traffic originating from external networks and destined for a node in the host network.
+
+---
+class: center, middle
+
+Egress is all traffic is directed towards an external network and originated from inside the host network.
+
+---
+class: center, middle
+
+![Ingress vs Egress](assets/images/ingress-vs-egress.png)
+
+.image-credits[https://www.safdar.com/how-to/ingress-vs-egress-network-traffic.html]
+
+---
+class: center, middle
+
+#### East-West Traffic
+
+---
+class: center, middle
+
+East-West traffic indicates flow of data among devices within a specific data center.
+
+---
+class: center, middle
+
+#### North-South Traffic
+
+---
+class: center, middle
+
+Any communication between components of a data center and another system, which is physically out of the boundary of the data center, is referred to as north-south traffic.
+
+---
+class: center, middle
+
+It is any traffic coming to a data center, or going out of it to another system.
+
+---
+class: center, middle
+
+#### Switch
+
+---
+class: center, middle
+
+A switch is a device that filters and forwards network packets from one networking device (switch, router, computer, server, etc.) to another.
+
+---
+class: center, middle
+
+#### ATM Switch
+
+---
+class: center, middle
+
+ATM switches are high-speed packet switches designed to process and forward ATM cells.
+
+---
+class: center, middle
+
+*works on packet switching technology to allow voice, data, image and video traffic over high speed single access circuit.*
+
+---
+class: center, middle
+
+The resources available on an ATM switch are divided into *switchlets*, each of which encapsulates a subset of the physical ATM switch resources.
+
+---
+class: center, middle
+
+#### Intra / Inter - Domain Routing
+
+---
+class: center, middle
+
+Intra domain is any protocol in which *routing* algorithm works only within domains.
+
+---
+class: center, middle
+
+Inter domain is any protocol in which *routing* algorithm works within and between domains.
+
+---
+class: center, middle
+
+![Intra/Inter Domain Routing](assets/images/intra-inter-domain-routing.png)
+
+---
+class: center, middle
+
+#### IGP / EGP
+
+---
+class: center, middle
+
+An interior gateway protocol (IGP) is a dynamic route update protocol used between routers that run on TCP/IP hosts within a single autonomous system.
+
+---
+class: center, middle
+
+Exterior Gateway Protocol (EGP) is the mechanism that allows the exterior gateway of an autonomous system to share routing information with exterior gateways on other autonomous systems.
+
+---
+
+EGP has three major functions:
+
+- Establish a set of neighbours
+
+- Check status of neighbours (if they are alive/reachable)
+
+- Inform neighbours the networks that reachable within their AS’s
+
+---
+class: center, middle
+
+## Need for SDN
+
+---
+
+
+
+---
+class: center, middle
+
 Code
 https://github.com/AgarwalConsulting/NWVirt-Training
 
