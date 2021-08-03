@@ -1327,8 +1327,9 @@ Savings in 10 data centers = $400M
 
   - How to address the hosts in a data center?
 
-    - *Layer 2*: Less config/admin, but bad scaling properties
-    - *Layer 3*: Can use existing routing protocols but high administration overhead
+    > *Layer 2*: Less config/admin, but bad scaling properties
+
+    > *Layer 3*: Can use existing routing protocols but high administration overhead
 
   - How to get the best of both worlds?
 
@@ -1337,8 +1338,10 @@ Savings in 10 data centers = $400M
 - Solution: Separate controller
 
   - Topology-dependent MAC addressing
-    - Intercept all ARP packets
-    - Rewrite MAC for packets entering & exiting network
+
+    > Intercept all ARP packets
+
+    > Rewrite MAC for packets entering & exiting network
 
   - IP addressing for application compatibility
 
