@@ -1442,7 +1442,57 @@ class: center, middle
 ---
 class: center, middle
 
-*Challenge*: Define your own mininet topology
+*Challenge*: Define your own [mininet topology](https://github.com/AgarwalConsulting/NWVirt-Training/tree/master/challenges/01-mininet)
+
+.content-credits[https://github.com/AgarwalConsulting/NWVirt-Training/tree/master/examples/02-mininet]
+
+---
+class: center, middle
+
+## OpenFlow
+
+---
+class: center, middle
+
+The original concept began at Stanford University in 2008 but has since been managed by the Open Networking Foundation.
+
+---
+class: center, middle
+
+OpenFlow (OF) is considered one of the first software-defined networking (SDN) standards.
+
+---
+class: center, middle
+
+An SDN controller in SDN is the “brains” of the SDN network, relaying information to switches/routers “below” (via southbound APIs) and the applications and business logic “above” (via northbound APIs).
+
+---
+class: center, middle
+
+### Benefits of OpenFlow
+
+---
+
+- Programmability
+
+- Centralized Intelligence
+
+- Abstraction
+
+---
+class: center, middle
+
+### OpenFlow Specification
+
+---
+class: center, middle
+
+By December 2009, [Version 1.0](https://opennetworking.org/wp-content/uploads/2013/04/OpenFlow%20Table%20Type%20Patterns%20v1.0.pdf) of the OpenFlow switch specification was released.
+
+---
+class: center, middle
+
+[Later specifications](https://opennetworking.org/software-defined-standards/specifications/)
 
 ---
 class: center, middle
