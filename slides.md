@@ -1371,6 +1371,7 @@ class: center, middle
 A northbound interface of a component is an interface that allows the component to communicate with a higher level component, using the latter component's southbound interface.
 
 ---
+class: center, middle
 
 A southbound interface decomposes concepts in the technical details, mostly specific to a single component of the architecture. Southbound interfaces are drawn at the bottom of an architectural overview.
 
@@ -1466,12 +1467,30 @@ OpenFlow (OF) is considered one of the first software-defined networking (SDN) s
 ---
 class: center, middle
 
-The original concept began at Stanford University in 2008 but has since been managed by the Open Networking Foundation.
+The original concept began at Stanford University in 2008 but has since been managed by the [Open Networking Foundation](https://opennetworking.org/).
 
 ---
 class: center, middle
 
 An SDN controller in SDN is the “brains” of the SDN network, relaying information to switches/routers “below” (via southbound APIs) and the applications and business logic “above” (via northbound APIs).
+
+---
+class: center, middle
+
+![OF Architecture](assets/images/of-architecture.png)
+
+---
+class: center, middle
+
+Open Flow manipulates flow tables and flow entries on network devices without the application directly connecting to the network devices.
+
+---
+
+- The application developer can use an API to communicate to the controller, and the controller takes care of the details needed to update the network devices flow tables.
+
+- The beauty of SDN is in the Application layer.
+
+- OpenFlow is one (of many) possible means to achieve the abstraction needed for SDN.
 
 ---
 class: center, middle
@@ -1494,12 +1513,378 @@ class: center, middle
 ---
 class: center, middle
 
+The official protocol specification that determines the formats for messages between the controller and the switch.
+
+---
+class: center, middle
+
 By December 2009, [Version 1.0](https://opennetworking.org/wp-content/uploads/2013/04/OpenFlow%20Table%20Type%20Patterns%20v1.0.pdf) of the OpenFlow switch specification was released.
 
 ---
 class: center, middle
 
+The first "official release" of the OpenFlow protocol specification that is implemented on all major hardware and software switches, including Open vSwitch.
+
+---
+class: center, middle
+
+Most controllers also support the OpenFlow 1.0 specification.
+
+---
+class: center, middle
+
 [Later specifications](https://opennetworking.org/software-defined-standards/specifications/)
+
+---
+class: center, middle
+
+![OF Version Timeline](assets/images/of-version-timeline.png)
+
+---
+class: center, middle
+
+![OF Version Timeline](assets/images/of-version-changes.png)
+
+---
+class: center, middle
+
+### Components of OpenFlow
+
+---
+
+- Controller
+
+- OpenFlow Switches
+
+---
+class: center, middle
+
+### How does OpenFlow work?
+
+---
+class: center, middle
+
+OpenFlow controller communicates with switch over a secure channel
+
+---
+
+#### OpenFlow communication
+
+- OpenFlow protocol defines message format
+
+- Purpose of control channel: update flow table
+
+- Switches listen on port `6634` (`<` v1.3.2) or `6654` (`>` v1.3.2)
+
+- Logic is executed at controller
+
+---
+
+#### Flow Tables
+
+- In an OpenFlow network, each OpenFlow switch contains at least 1 flow table and a set of flow entries within that table.
+
+- Using the OpenFlow switch protocol, the controller can add, update, and delete flow entries in flow tables, both reactively (in response to packets) and proactively.
+
+---
+class: center, middle
+
+**Reactive Flow Entries** are created when the controller dynamically learns where devices are in the topology and must update the flow tables on those devices to build end-to-end connectivity.
+
+---
+class: center, middle
+
+**Proactive Flow Entries** are programmed before traffic arrives. If it’s already known that two devices should or should not communicate, the controller can program these flow entries on the OpenFlow endpoints ahead of time.
+
+---
+
+- Typically, you’ll have more than a single flow table, so it’s important to note that matching starts at the first flow table and may continue to additional flow tables of the pipeline.
+
+- The packet will first start in table 0 and check those entries based on priority. Highest priority will match first (e.g. 200, then 100, then 1).
+
+- If the flow needs to continue to another table, goto statement tells the packet to go to the table specified in the instructions.
+
+---
+class: center, middle
+
+![OF Flow Tables](assets/images/of-flow-table-priority.png)
+
+---
+class: center, middle
+
+Flow entries contain match fields, counters and instructions to apply to matched packets.
+
+---
+class: center, middle
+
+![OF Flow Table Actions](assets/images/of-flow-table-actions.png)]
+
+---
+
+#### Flow Actions
+
+- Actions are applied to packets that match a flow entry.
+
+- Actions include:
+
+  - Forward
+
+  - Drop
+
+  - Modify
+
+  - Enqueue
+
+---
+
+*Actions*: Forward
+
+- All: Send out all interfaces, not including the incoming interface.
+
+- Controller: Encapsulate & send to the controller.
+
+- Local: Send to the switch's local networking stack.
+
+- Table: Perform actions in flow table. Only for packet-out messages.
+
+- In port: Send the packet out the input port.
+
+- *Optional*: Normal forwarding, spanning tree
+
+---
+
+*Actions*: Drop
+
+- A flow-entry with no specified action indicates that all matching packets should be dropped.
+
+---
+
+*Actions*: Modify
+
+- Option to modify packet header values in the packet (e.g., VLAN ID)
+
+  - Set VLAN ID, priority, etc.
+
+  - Set destination IP address
+
+---
+
+*Actions*: Enqueue
+
+- Send the packet through a queue attached to a port
+
+---
+class: center, middle
+
+*Demo*: Modifying/Accessing flow table entries using `dpctl`
+
+---
+class: center, middle
+
+![OF dpctl](assets/images/of-dpctl.png)
+
+---
+class: center, middle
+
+There are two types of OpenFlow switches: OpenFlow-only, and OpenFlow-hybrid.
+
+---
+
+- **OpenFlow-only** switches are “dumb switches” having only a data/forwarding plane and no way of making local decisions. All packets are processed by the OpenFlow pipeline, and can not be processed otherwise.
+
+- **OpenFlow-hybrid** switches are “smart switches” that have a data plane and a forwarding plane. The data plane is used to make local decisions, and the forwarding plane is used to forward packets.
+
+---
+class: center, middle
+
+*Hybrid-switches* support both OpenFlow operation and normal Ethernet switching operation. This means you can use traditional L2 Ethernet switching, VLAN isolation, L3 routing, ACLs and QoS processing via the switch’s local control plane while interacting with the OpenFlow pipeline using various classification mechanisms.
+
+---
+class: center, middle
+
+#### Open vSwitch (OVS)
+
+.content-credits[https://www.openvswitch.org/]
+
+---
+
+##### Open vSwitch (History)
+
+- When VMware created server virtualization the access layer changed from having to be connected to a physical switch to being able to connect to a virtual switch.
+
+- This virtual switch is a software layer that resides in a server that is hosting virtual machines (VMs).
+
+- VMs, and now also containers, such as Docker, have logical or virtual Ethernet ports.
+
+---
+
+- Open vSwitch was created by the team at Nicira, that was later acquired by VMware.
+
+- OVS was intended to meet the needs of the open source community, since there was no a feature-rich virtual switch offering designed for Linux-based hypervisors, such as KVM and XEN.
+
+- OVS has quickly become the de facto virtual switch for XEN environments, and it is now playing a large part in other open source projects, like OpenStack.
+
+---
+class: center, middle
+
+![OVS Feature Set](assets/images/ovs-feature-set.jpg)
+
+---
+class: center, middle
+
+OVS supports NetFlow, sFlow, port mirroring, VLANs, LACP, etc. From a control and management perspective, Open vSwitch leverages OpenFlow and the [Open vSwitch Database (OVSDB)](https://www.sdxcentral.com/cloud/open-source/definitions/what-is-ovsdb/) management protocol, which means it can operate both as a soft switch running within the hypervisor, and as the control stack for switching silicon.
+
+---
+
+Other important ways OVS is incorporated in software-defined networking (SDN) include:
+
+- OVS is used to implement the Open vSwitch SDN Controller.
+
+- OVS is critical to many SDN deployments in data centers because it ties together all the virtual machines (VMs) within a hypervisor instance on a server
+
+- It is the first entry point for all the VMs sending traffic to the network and is the ingress point into overlay networks running on top of physical networks in the data center
+
+- Using OVS for virtual networking is considered the core element of many datacenter SDN deployments and the main use case is multi-tenant network virtualization
+
+- OVS can also be used to direct traffic between network functions in service chaining use cases
+
+---
+class: center, middle
+
+OVS differs from the commercial offerings from VMware and Cisco. One point worth noting about OVS is that there is not a native SDN Controller or manager, like the Virtual Supervisor Manager (VSM) in the Cisco 1000V or vCenter in the case of VMware’s distributed switch.
+
+---
+class: center, middle
+
+Open vSwitch is meant to be controlled and managed by third party controllers and managers.
+
+---
+class: center, middle
+
+### Terminology (OpenFlow)
+
+---
+class: center, middle
+
+#### Controller overhead
+
+---
+class: center, middle
+
+Typically refers to the overhead that results when a switch does not have a flow table entry for a packet, causing the packet to be sent to the controller for processing.
+
+---
+class: center, middle
+
+#### Flow table caching
+
+---
+class: center, middle
+
+The process by which flow table decisions are cached at the switch, to prevent all packets from having to be forwarded through the controller.
+
+---
+class: center, middle
+
+#### Control channel
+
+---
+class: center, middle
+
+The communications channel that an SDN controller uses to communicate with SDN-capable switches.
+
+---
+class: center, middle
+
+#### OpenStack
+
+---
+class: center, middle
+
+A cloud operating system that makes use of network virtualization and OpenFlow to present an abstraction of a logical pool of resources.
+
+---
+
+### OpenFlow Connection Sequence
+
+- Switch can initiate the connection to the controller’s IP and default transport port (TCP `6633` pre-OpenFlow 1.3.2, TCP `6653` post), or a user-specified port.
+
+- Controller can also initiate the connection request, but this isn’t common.
+
+- TCP or TLS Connection Established
+
+- Both send an `OFPT_HELLO` with a populated version field
+
+- Both calculate the negotiated version to be used
+
+- If this cannot be agreed upon an `OFPT_ERROR` message is sent
+
+- If each support the version, the controller sends an `OFPT_FEATURES-REQUEST` to gather the Datapath ID of the switch, along with the switch’s capabilities.
+
+---
+class: center, middle
+
+### SDN/OpenFlow Controllers
+
+---
+class: center, middle
+
+SDN controllers can simplify network management, handling all communications between applications and devices to effectively manage and modify network flows to meet changing needs.
+
+---
+class: center, middle
+
+When the network control plane is implemented in software, rather than firmware, administrators can manage network traffic more dynamically and at a more granular level.
+
+---
+class: center, middle
+
+An SDN controller relays information to the switches/routers (via southbound APIs) and the applications and business logic (via northbound APIs).
+
+---
+class: center, middle
+
+OpenFlow controllers create a central control point to oversee a variety of OpenFlow-enabled network components.
+
+---
+class: center, middle
+
+The OpenFlow protocol is designed to increase flexibility by eliminating proprietary protocols from hardware vendors.
+
+---
+class: center, middle
+
+There are many different implementations of the OpenFlow specification. These are known as the OpenFlow controllers.
+
+---
+
+- *NOX/POX*
+
+- *Ryu*
+
+- *Floodlight*
+
+- *OpenDaylight*
+
+- Pyretic
+
+- Frenetic
+
+- Procera
+
+- RouteFlow
+
+- Trema
+
+---
+class: center, middle
+
+#### NOX
+
+---
+class: center, middle
+
+The first SDN controller was *NOX*, which was initially developed by *Nicira* Networks, alongside OpenFlow.
 
 ---
 class: center, middle

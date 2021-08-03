@@ -53,3 +53,11 @@ Execute the script
 ```bash
 sudo ./LinearTopo.py
 ```
+
+---
+
+## Load custom topo
+
+```bash
+sudo mn --custom topo.py  --topo topo --mac --switch ovs --controller remote
+```
