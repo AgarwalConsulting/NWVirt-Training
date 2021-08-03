@@ -1742,7 +1742,12 @@ class: center, middle
 ---
 class: center, middle
 
-OVS supports NetFlow, sFlow, port mirroring, VLANs, LACP, etc. From a control and management perspective, Open vSwitch leverages OpenFlow and the [Open vSwitch Database (OVSDB)](https://www.sdxcentral.com/cloud/open-source/definitions/what-is-ovsdb/) management protocol, which means it can operate both as a soft switch running within the hypervisor, and as the control stack for switching silicon.
+OVS supports NetFlow, sFlow, port mirroring, VLANs, LACP, etc.
+
+---
+class: center, middle
+
+From a control and management perspective, Open vSwitch leverages OpenFlow and the [Open vSwitch Database (OVSDB)](https://www.sdxcentral.com/cloud/open-source/definitions/what-is-ovsdb/) management protocol, which means it can operate both as a soft switch running within the hypervisor, and as the control stack for switching silicon.
 
 ---
 
