@@ -1348,6 +1348,60 @@ class: center, middle
 ---
 class: center, middle
 
+### Terminology (Revisited)
+
+---
+class: center, middle
+
+#### Northbound/Southbound Interface
+
+---
+class: center, middle
+
+The northbound interface conceptualizes the lower level details (e.g., data or functions) used by, or in, the component, allowing the component to interface with higher level layers.
+
+---
+class: center, middle
+
+A northbound interface of a component is an interface that allows the component to communicate with a higher level component, using the latter component's southbound interface.
+
+---
+
+A southbound interface decomposes concepts in the technical details, mostly specific to a single component of the architecture. Southbound interfaces are drawn at the bottom of an architectural overview.
+
+---
+class: center, middle
+
+A southbound interface (SBI) is a component’s lower level interface layer.
+
+---
+class: center, middle
+
+In software-defined networking (SDN), the southbound interface serves as the OpenFlow or alternative protocol specification. It allows a network component to communicate with a lower level component.
+
+---
+class: center, middle
+
+![Southbound Interface](assets/images/southbound-interface.png)
+
+---
+class: center, middle
+
+In architectural overviews, the northbound interface is normally drawn at the top of the component it is defined in; hence the name northbound interface.
+
+---
+class: center, middle
+
+Before we begin configuring our controllers...
+
+---
+class: center, middle
+
+## Mininet
+
+---
+class: center, middle
+
 Code
 https://github.com/AgarwalConsulting/NWVirt-Training
 
