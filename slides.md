@@ -1589,12 +1589,22 @@ OpenFlow controller communicates with switch over a secure channel
 ---
 class: center, middle
 
+![OpenFlow Flow Table](assets/images/of-flow-table-entries.png)
+
+---
+class: center, middle
+
 **Reactive Flow Entries** are created when the controller dynamically learns where devices are in the topology and must update the flow tables on those devices to build end-to-end connectivity.
 
 ---
 class: center, middle
 
 **Proactive Flow Entries** are programmed before traffic arrives. If it’s already known that two devices should or should not communicate, the controller can program these flow entries on the OpenFlow endpoints ahead of time.
+
+---
+class: center, middle
+
+![OpenFlow Switch](assets/images/of-flow-table-entries-in-switch.png)
 
 ---
 
@@ -1676,7 +1686,7 @@ class: center, middle
 ---
 class: center, middle
 
-*Demo*: Modifying/Accessing flow table entries using `dpctl`
+*Demo*: [Modifying/Accessing flow table entries](https://github.com/AgarwalConsulting/NWVirt-Training/tree/master/examples/03-of) using `dpctl`
 
 ---
 class: center, middle
