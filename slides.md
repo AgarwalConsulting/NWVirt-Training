@@ -1206,6 +1206,148 @@ a single network wide vantage point could allow operators to directly observe ra
 ---
 class: center, middle
 
+SDN operates using Control & Data plane separation.
+
+---
+class: center, middle
+
+![SDN Architecture](assets/images/sdn-architecture.png)
+
+---
+
+#### Control Plane
+
+- The control plane is responsible for the configuration of the network.
+
+- Logic for controlling the forwarding behavior of the network.
+
+- Eg. Routing protocols, network middlebox configuration, etc.
+
+---
+
+#### Data Plane
+
+- The data plane is responsible for the actual forwarding of packets.
+
+- Forwards according to the forwarding logic specified in the control plane.
+
+- Eg. IP forwarding, Layer 2 switching, etc.
+
+---
+class: center, middle
+
+#### Why separate the Control & Data plane?
+
+---
+
+- Independent evolution & development
+
+- Control from high-level software program
+
+---
+class: center, middle
+
+#### Where does the separation help?
+
+---
+
+- Data Centers
+
+- Routing: More control over decision logic
+
+- Enterprise networks
+
+- Research networks
+
+---
+class: center, middle
+
+![Need for SDN](assets/images/sdn-need.png)
+
+---
+class: center, middle
+
+#### Challenges in separation?
+
+---
+
+- Scalability
+
+  Once you separate the control elements from the forwarding elements. Its likely that a control element maybe responsible for many many forwarding elements and sometimes thousands of forwarding elements.
+
+- Reliability or Security
+
+  What happens if a controller fails or is compromised? Well we should hope that the forwarding elements continue forwarding traffic, business as usual. But once we've separated the brains of the network from the devices that are actually forwarding the traffic. Correct behavior is no longer guaranteed if a controller should be failed or compromised.
+
+---
+class: center, middle
+
+Interdomain routing protocol, BGP is the most common protocol used in today's networks.
+
+---
+class: center, middle
+
+But it artificially constrains routes
+
+---
+
+- Route selection is based on a fixed set of steps
+
+- There are limited knobs to control inbound/outbound traffic
+
+- Very difficult to incorporate other information
+
+---
+
+Examples where SDN is better
+
+- Maintenance dry out
+
+- Egress Selection
+
+- Better BGP Security
+
+---
+
+- Data Centers costs
+
+200,000 servers
+Fanout of 20 -> 10,000 switches
+
+Option 1: $5k vendor switch = $50M
+Option 2: $1k commodity switch + SDN = $10M
+
+Savings in 10 data centers = $400M
+
+---
+
+- Data center addressing
+
+  - How to address the hosts in a data center?
+
+    - *Layer 2*: Less config/admin, but bad scaling properties
+    - *Layer 3*: Can use existing routing protocols but high administration overhead
+
+  - How to get the best of both worlds?
+
+---
+
+- Solution: Separate controller
+
+  - Topology-dependent MAC addressing
+    - Intercept all ARP packets
+    - Rewrite MAC for packets entering & exiting network
+
+  - IP addressing for application compatibility
+
+---
+class: center, middle
+
+![SDN](assets/images/separate-controller.png)
+
+---
+class: center, middle
+
 Code
 https://github.com/AgarwalConsulting/NWVirt-Training
 
