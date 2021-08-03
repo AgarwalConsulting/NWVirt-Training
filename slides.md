@@ -1404,6 +1404,8 @@ class: center, middle
 
 ## Mininet
 
+.content-credits[https://github.com/mininet/mininet/wiki/Introduction-to-Mininet]
+
 ---
 class: center, middle
 
