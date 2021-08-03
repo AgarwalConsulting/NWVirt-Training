@@ -1506,4 +1506,4 @@ Code
 https://github.com/AgarwalConsulting/NWVirt-Training
 
 Slides
-https://cilium.slides.agarwalconsulting.io/
+https://nw-virtualization.slides.agarwalconsulting.io/
