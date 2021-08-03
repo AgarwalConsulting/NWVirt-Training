@@ -1442,6 +1442,11 @@ class: center, middle
 ---
 class: center, middle
 
+*Challenge*: Define your own mininet topology
+
+---
+class: center, middle
+
 Code
 https://github.com/AgarwalConsulting/NWVirt-Training
 
