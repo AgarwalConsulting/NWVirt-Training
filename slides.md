@@ -1459,12 +1459,12 @@ class: center, middle
 ---
 class: center, middle
 
-The original concept began at Stanford University in 2008 but has since been managed by the Open Networking Foundation.
+OpenFlow (OF) is considered one of the first software-defined networking (SDN) standards.
 
 ---
 class: center, middle
 
-OpenFlow (OF) is considered one of the first software-defined networking (SDN) standards.
+The original concept began at Stanford University in 2008 but has since been managed by the Open Networking Foundation.
 
 ---
 class: center, middle
