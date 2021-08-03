@@ -1402,6 +1402,46 @@ class: center, middle
 ---
 class: center, middle
 
+### Topologies
+
+---
+class: center, middle
+
+![Single](assets/images/mn-single.png)
+
+.image-credits[http://www.routereflector.com/2013/11/mininet-as-an-sdn-test-platform/]
+
+---
+class: center, middle
+
+![reversed](assets/images/mn-reversed.png)
+
+.image-credits[http://www.routereflector.com/2013/11/mininet-as-an-sdn-test-platform/]
+
+---
+class: center, middle
+
+![linear](assets/images/mn-linear.png)
+
+.image-credits[http://www.routereflector.com/2013/11/mininet-as-an-sdn-test-platform/]
+
+---
+class: center, middle
+
+![tree](assets/images/mn-tree.png)
+
+.image-credits[http://www.routereflector.com/2013/11/mininet-as-an-sdn-test-platform/]
+
+---
+class: center, middle
+
+![custom](assets/images/mn-custom.png)
+
+.image-credits[http://www.routereflector.com/2013/11/mininet-as-an-sdn-test-platform/]
+
+---
+class: center, middle
+
 Code
 https://github.com/AgarwalConsulting/NWVirt-Training
 

@@ -4,13 +4,15 @@ Data center networks typically have a tree-like topology. End-hosts connect to t
 
 In this assignment, your task is to create a simple tree topology. You will assume each level i.e., core, aggregation, edge and host to be composed of a single layer of switches/hosts with a configurable fanout value (k).
 
+![Tree Topology](http://pages.cs.wisc.edu/~akella/CS838/F12/images/image00.png)
+
 <!-- To start this assignment update the course's Github repo (by default, Coursera-SDN) on your host machine using git pull. Turn on your guest VM (if it is turned off) using vagrant up. Now ssh into the guest VM using vagrant ssh. Go to the directory with the updated code base in your guest VM. -->
 
 It consists of one files:
 
-CustomTopo.py: a skeleton class which you will update with the logic for creating the datacenter topology described above.
+`CustomTopo.py`: a skeleton class which you will update with the logic for creating the datacenter topology described above.
 
-CustomTopo.py
+## CustomTopo.py
 
 The skeleton class takes following arguments as input:
 
@@ -20,6 +22,8 @@ The skeleton class takes following arguments as input:
 - `Fanout`: to specify fanout value i.e., number of childs per node.
 
 Your logic should support setting at least bw and delay parameters for each link.
+
+![Tree Topology Complicated](http://pages.cs.wisc.edu/~akella/CS838/F12/images/image01.png)
 
 Make sure to clean mininet environment using:
 
