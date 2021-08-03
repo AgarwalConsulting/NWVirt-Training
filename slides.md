@@ -1311,6 +1311,7 @@ Examples where SDN is better
 
 - Data Centers costs
 
+```
 200,000 servers
 Fanout of 20 -> 10,000 switches
 
@@ -1318,6 +1319,7 @@ Option 1: $5k vendor switch = $50M
 Option 2: $1k commodity switch + SDN = $10M
 
 Savings in 10 data centers = $400M
+```
 
 ---
 
