@@ -2455,7 +2455,9 @@ It is designed to solve the problem of limited VLAN IDs (4,096).
 ---
 class: center, middle
 
-It uses `UDP` packets to wrap the `IP` packets. <sup>[[1]](https://www.juniper.net/us/en/research-topics/what-is-vxlan.html)</sup>
+It uses `UDP` packets to wrap the `IP` packets.
+
+.content-credits[https://www.juniper.net/us/en/research-topics/what-is-vxlan.html]
 
 ---
 class: center, middle
@@ -2572,7 +2574,9 @@ The stated goal of `GENEVE` is to define an encapsulation data format only.
 ---
 class: center, middle
 
-`GENEVE` encapsulated packets are designed to be transmitted via standard networking equipment. Packets are sent from one tunnel endpoint to one or more tunnel endpoints using either unicast or multicast addressing. <sup>[[2]](https://www.redhat.com/en/blog/what-geneve)</sup>
+`GENEVE` encapsulated packets are designed to be transmitted via standard networking equipment. Packets are sent from one tunnel endpoint to one or more tunnel endpoints using either unicast or multicast addressing.
+
+.content-credits[https://www.redhat.com/en/blog/what-geneve]
 
 ---
 class: center, middle
@@ -2754,6 +2758,13 @@ class: center, middle
 class: center, middle
 
 *Demo*: `docker network`
+
+---
+class: center, middle
+
+### What about Mininet?
+
+.content-credits[https://github.com/wiki/mininet/mininet/pdf/mininet-hotnets2010-final.pdf]
 
 ---
 class: center, middle
@@ -2959,6 +2970,11 @@ eBPF is enabling visibility into and control over systems and applications at a 
 ---
 class: center, middle
 
+![eBPF Timeline](assets/images/ebpf-timeline.png)
+
+---
+class: center, middle
+
 BPF is a general purpose RISC instruction set and was originally designed for the purpose of writing programs in a subset of C which can be compiled into BPF instructions through a compiler back end (e.g. LLVM), so that the kernel can later on map them through an in-kernel JIT compiler into native opcodes for optimal execution performance inside the kernel.
 
 ---
@@ -3102,6 +3118,79 @@ class: center, middle
 ![eBPF JIT](assets/images/ebpf-jit.png)
 
 .content-credits[https://github.com/cilium/cilium#what-is-ebpf-and-xdp]
+
+---
+class: center, middle
+
+Until 1 Gbit/s networks, Network virtualization was not suffering from the overhead of the software layers or hypervisor layers providing the interconnects. With the rise of high bandwidth, 10 Gbit/s and beyond, the rates of packets exceed the capabilities of processing of the networking stacks.
+
+---
+class: center, middle
+
+In order to keep offering high throughput processing, some combinations of software and hardware helpers are deployed in the so-called "network in a box" associated with either a hardware-dependent network interface controller (NIC) using SRIOV extensions of the hypervisor or either using a fast path technology between the NIC and the payloads (virtual machines or containers).
+
+---
+class: center, middle
+
+The main bypass technologies are either based on a limited set of features such as Open vSwitch (OVS) with its [DPDK](https://www.dpdk.org/) user space implementation or based on a full feature and offload of Linux processing such as [6WIND Virtual Accelerator](https://www.6wind.com/).
+
+---
+class: center, middle
+
+### SDN & N/W Virtualization
+
+---
+class: center, middle
+
+#### Slicing Network Control
+
+---
+class: center, middle
+
+Network slicing divides the production network into logical slices, such that, each slice controls its own packet forwarding.
+
+---
+class: center, middle
+
+![Network slicing](assets/images/slicing.png)]
+
+---
+class: center, middle
+
+*FlowVisor* is an experimental software-defined networking (SDN) controller that enables network virtualization by dividing a physical network into multiple logical networks.
+
+.content-credits[https://github.com/opennetworkinglab/flowvisor]
+
+---
+
+- FlowVisor is a special purpose OpenFlow controller that acts as a transparent proxy between OpenFlow switches and multiple OpenFlow controllers
+
+- FlowVisor creates rich "slices" of network resources and delegates control of each slice to a different controller
+
+- Slices can be defined by any combination of switch ports (layer 1), src/dst ethernet address or type (layer 2), src/dst IP address or type (layer 3), and src/dst TCP/UDP port or ICMP code/type (layer 4).
+
+- FlowVisor enforces isolation between each slice, i.e., one slice cannot control another's traffic
+
+---
+
+From FlowVisor README:
+
+> An OpenFlow controller that acts as a hypervisor/proxy between a switch and multiple controllers. Can slice multiple switches in parallel, effectively slicing a network.
+
+---
+class: center, middle
+
+FlowVisor slices a physical network into abstracted units of bandwidth, topology, traffic and network device central processing units (CPUs). It operates as a transparent proxy controller between the physical switches of an OpenFlow network and other OpenFlow controllers and enables multiple controllers to operate the same physical infrastructure.
+
+---
+
+- The SDN research community considers FlowVisor an experimental technology, although Stanford University, a leading SDN research institution, has run FlowVisor in its production network since 2009.
+
+- FlowVisor lacks some of the basic network management interfaces that would make it enterprise-grade.
+
+- It currently has no command line interface or Web-based administration console.
+
+- Instead, users make changes to the technology with configuration file updates.
 
 ---
 class: center, middle
