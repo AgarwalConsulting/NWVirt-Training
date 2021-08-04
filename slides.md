@@ -1839,6 +1839,11 @@ A cloud operating system that makes use of network virtualization and OpenFlow t
 ---
 class: center, middle
 
+*Challenge*: Add entries using `dpctl` to allow hosts in tree topo (depth=2) to reach each other.
+
+---
+class: center, middle
+
 ### SDN/OpenFlow Controllers
 
 ---
