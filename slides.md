@@ -6,7 +6,7 @@ layout: true
 
 class: center, middle
 
-# Network Virtualization
+# SDN & Network Virtualization
 
 Gaurav Agarwal
 
@@ -2167,6 +2167,941 @@ class: center, middle
 class: center, middle
 
 ![OF Abstractions](assets/images/of-abstractions.png)
+
+---
+class: center, middle
+
+## Network Virtualization
+
+---
+class: center, middle
+
+In computing, network virtualization is the process of combining hardware and software network resources and network functionality into a single, software-based administrative entity, a virtual network.
+
+---
+class: center, middle
+
+Network virtualization involves platform virtualization, often combined with resource virtualization.
+
+---
+class: center, middle
+
+Network Virtualization refers to abstracting network resources that were traditionally delivered in hardware to software.
+
+---
+class: center, middle
+
+![NW Virtualization](assets/images/nw-virt.png)
+
+---
+class: center, middle
+
+Network Virtualization can combine multiple physical networks to one virtual, software-based network, or it can divide one physical network into separate, independent virtual networks.
+
+---
+
+Network virtualization is categorized as:
+
+- External virtualization
+
+  - combining many networks or parts of networks into a virtual unit.
+
+- Internal virtualization
+
+  - providing network-like functionality to software containers on a single network server.
+
+---
+class: center, middle
+
+Network virtualization software allows network administrators to move virtual machines across different domains without reconfiguring the network.
+
+The software creates a network overlay that can run separate virtual network layers on top of the same physical network fabric.
+
+---
+
+### History (NV)
+
+- Virtualization was first introduced in the 1970s – back in the days of mainframe computing. It was superseded in the 1980s/1990s by the invention of x86 servers, personal computers and a move to a distributed computing model.
+
+- Network virtualization as a term first appeared around 2005/2006 and almost exclusively in Cisco marketing material where it was used to promote virtualization of an enterprise campus network to achieve multiple closed user groups on a single physical network.
+
+---
+
+- Reduce network provisioning time from weeks to minutes
+
+- Achieve greater operational efficiency by automating manual processes
+
+- Place and move workloads independently of physical topology
+
+- Improve network security within the data center
+
+---
+
+### Components of Network Virtualization
+
+Various equipment and software vendors offer network virtualization by combining any of the following:
+
+- Network hardware, such as switches and network adapters, also known as network interface cards (NICs)
+
+- Network elements, such as firewalls and load balancers
+
+- Networks, such as virtual LANs (VLANs) and containers such as virtual machines (VMs)
+
+- Network storage devices
+
+- Network machine-to-machine elements, such as telecommunications devices
+
+- Network mobile elements, such as laptop computers, tablet computers, and smartphones
+
+- Network media, such as Ethernet and Fibre Channel
+
+---
+
+### Aspects of network that can be virtualized
+
+- *Nodes*: Virtual Machines
+
+- *Links*: Tunnels
+
+- Storage
+
+---
+
+### Benefits
+
+- Infrastructure utilization
+
+- Scalability
+
+- Agility
+
+- Resilience
+
+- Security
+
+---
+class: center, middle
+
+### Related Technologies (NV)
+
+---
+class: center, middle
+
+#### VLAN
+
+---
+class: center, middle
+
+One example of network virtualization is virtual LAN (VLAN).
+
+---
+
+- VLANs (Virtual LANs) are logical grouping of devices in the same broadcast domain.
+
+- VLANs are usually configured on switches by placing some interfaces into one broadcast domain and some interfaces into another.
+
+- Each VLAN acts as a subgroup of the switch ports in an Ethernet LAN.
+
+- VLANs can spread across multiple switches, with each VLAN being treated as its own subnet or broadcast domain.
+
+---
+class: center, middle
+
+A VLAN acts like a physical LAN, but it allows hosts to be grouped together in the same broadcast domain even if they are not connected to the same switch.
+
+---
+
+##### Benefits of VLAN
+
+- VLANs increase the number of broadcast domains while decreasing their size.
+
+- VLANs reduce security risks by reducing the number of hosts that receive copies of frames that the switches flood.
+
+- You can keep hosts that hold sensitive data on a separate VLAN to improve security.
+
+- You can create more flexible network designs that group users by department instead of by physical location.
+
+- Network changes are achieved with ease by just configuring a port into the appropriate VLAN.
+
+---
+class: center, middle
+
+The following topology shows a network with all hosts inside the same VLAN:
+
+![VLAN Without](assets/images/vlan-without.jpg)
+
+---
+class: center, middle
+
+Without VLANs, a broadcast sent from host A would reach all devices on the network. Each device will receive and process broadcast frames, increasing the CPU overhead on each device and reducing the overall security of the network.
+
+---
+class: center, middle
+
+By placing interfaces on both switches into a separate VLAN, a broadcast from host A would reach only devices inside the same VLAN, since each VLAN is a separate broadcast domain. Hosts in other VLANs will not even be aware that the communication took place.
+
+---
+class: center, middle
+
+![VLAN With](assets/images/vlan-with.webp)
+
+---
+
+##### How VLAN works
+
+- VLANs in networking are identified by a number.
+
+- A Valid range is 1-4094. On a VLAN switch, you assign ports with the proper VLAN number.
+
+- The switch then allows data which needs to be sent between various ports having the same VLAN.
+
+- Since almost all networks are larger than a single switch, there should be a way to send traffic between two switches.
+
+- One simple and easy way to do this is to assign a port on each network switch with a VLAN and run a cable between them.
+
+---
+class: center, middle
+
+![VLAN Ranges](assets/images/vlan-ranges.png)
+
+---
+class: center, middle
+
+VLAN separates broadcast domains by adding tags to network packets. VLANs allow network administrators to group hosts under the same switch or between different switches.
+
+---
+class: center, middle
+
+![VLAN Header](assets/images/vlan-header.png)
+
+---
+class: center, middle
+
+```bash
+ip link add link eth0 name eth0.2 type vlan id 2
+ip link add link eth0 name eth0.3 type vlan id 3
+```
+
+---
+class: center, middle
+
+![VLAN Domains](assets/images/vlan-domains.jpg)
+
+---
+class: center, middle
+
+##### Types of VLANs
+
+---
+class: center, middle
+
+![VLAN Types](assets/images/vlan-types.png)
+
+---
+
+- Port-Based VLAN
+
+  Port-based VLANs groups virtual local area network by port. In this type of virtual LAN, a switch port can be configured manually to a member of VLAN.
+
+  Devices that are connected to this port will belong to the same broadcast domain that is because all other ports are configured with a similar VLAN number.
+
+- Protocol Based VLAN
+
+  This type of VLAN processes traffic based on a protocol that can be used to define filtering criteria for tags, which are untagged packets.
+
+  In this Virtual Local Area Network, the layer-3 protocol is carried by the frame to determine VLAN membership. It works in multi-protocol environments. This method is not practical in a predominately IP based network.
+
+---
+
+- MAC Based VLAN
+
+  MAC Based VLAN allows incoming untagged packets to be assigned virtual LAN and, thereby, classify traffic depending on the packet source address. You define a Mac address to VLAN mapping by configuring mapping the entry in MAC to the VLAN table.
+
+---
+class: center, middle
+
+To interconnect two different VLANs, you can use routers or Layer 3 switches.
+
+---
+class: center, middle
+
+#### VXLAN
+
+---
+class: center, middle
+
+`VXLAN` is an encapsulation protocol that provides data center connectivity using tunneling to stretch Layer 2 connections over an underlying Layer 3 network.
+
+---
+class: center, middle
+
+![VXLAN](assets/images/vxlan.png)
+
+---
+class: center, middle
+
+It is designed to solve the problem of limited VLAN IDs (4,096).
+
+---
+
+##### Benefits of using VXLANs
+
+- You can theoretically create as many as 16 million VXLANs in an administrative domain (as opposed to 4094 VLANs).
+
+- VXLANs provide network segmentation at the scale required by cloud builders to support very large numbers of tenants.
+
+- With traditional Layer 2 networks you are constrained by Layer 2 boundaries and forced to create large or geographically stretched Layer 2 domains. VXLAN's functionality allows you to dynamically allocate resources within or between data centers and enables migration of virtual machines between servers that exist in separate Layer 2 domains by tunneling the traffic over Layer 3 networks.
+
+---
+class: center, middle
+
+It uses `UDP` packets to wrap the `IP` packets. <sup>[[1]](https://www.juniper.net/us/en/research-topics/what-is-vxlan.html)</sup>
+
+---
+class: center, middle
+
+##### Anatomy of a network packet (Revisited)
+
+![Anatomy of network packet](assets/images/anatomy-of-network-packet.png)
+
+.content-credits[https://www.tigera.io/lp/kubernetes-networking-ebook/]
+
+---
+class: center, middle
+
+An *overlay* network is a telecommunications network that is built on top of another network and is supported by its infrastructure. An *overlay* network decouples network services from the underlying infrastructure by encapsulating one packet inside of another packet.
+
+---
+class: center, middle
+
+##### Anatomy of a overlay network packet
+
+![Anatomy of overlay network packet](assets/images/anatomy-of-overlay-network-packet.png)
+
+.content-credits[https://www.tigera.io/lp/kubernetes-networking-ebook/]
+
+---
+class: center, middle
+
+The VXLAN tunneling protocol that encapsulates Layer 2 Ethernet frames in Layer 3 UDP packets, enables you to create virtualized Layer 2 subnets, or segments, that span physical Layer 3 networks. Each Layer 2 subnet is uniquely identified by a VXLAN network identifier (VNI) that segments traffic.
+
+---
+class: center, middle
+
+VXLAN encapsulates a MAC frame in a UDP datagram for transport across an IP network, creating an overlay network or tunnel.
+
+---
+class: center, middle
+
+VXLAN is typically deployed in data centers on virtualized hosts, which may be spread across multiple racks.
+
+---
+
+- Create VXLAN device
+
+```bash
+ip link add vxlan0 type vxlan id 42 group 239.1.1.1 dev eth1 dstport 4789
+# ip link add vx0 type vxlan id 100 local 1.1.1.1 remote 2.2.2.2 dev eth0 dstport 4789
+```
+
+This creates a new device named vxlan0. The device uses the multicast
+group 239.1.1.1 over eth1 to handle traffic for which there is no
+entry in the forwarding table. The destination port number is set to
+the IANA-assigned value of 4789. The Linux implementation of VXLAN
+pre-dates the IANA's selection of a standard destination port number
+and uses the Linux-selected value by default to maintain backwards
+compatibility.
+
+---
+
+- Delete vxlan device
+
+```bash
+ip link delete vxlan0
+```
+
+- Show vxlan info
+
+```bash
+ip -d link show vxlan0
+```
+
+---
+class: center, middle
+
+The entity that performs the encapsulation and decapsulation of packets is called a VXLAN tunnel endpoint (VTEP).
+
+---
+
+It is possible to create, destroy and display the vxlan
+forwarding table using the new bridge command.
+
+- Create forwarding table entry
+
+```bash
+bridge fdb add to 00:17:42:8a:b4:05 dst 192.19.0.2 dev vxlan0
+```
+
+- Delete forwarding table entry
+
+```bash
+bridge fdb delete 00:17:42:8a:b4:05 dev vxlan0
+```
+
+- Show forwarding table
+
+```bash
+bridge fdb show dev vxlan0
+```
+
+---
+class: center, middle
+
+Open vSwitch is an example of a software-based virtual network switch that supports VXLAN overlay networks.
+
+---
+class: center, middle
+
+#### GENEVE
+
+---
+class: center, middle
+
+The stated goal of `GENEVE` is to define an encapsulation data format only.
+
+---
+class: center, middle
+
+`GENEVE` encapsulated packets are designed to be transmitted via standard networking equipment. Packets are sent from one tunnel endpoint to one or more tunnel endpoints using either unicast or multicast addressing. <sup>[[2]](https://www.redhat.com/en/blog/what-geneve)</sup>
+
+---
+class: center, middle
+
+![GENEVE Header](assets/images/geneve-header.jpg)
+
+---
+
+- The GENEVE specification offers recommendations on ways to achieve efficient operation by avoiding fragmentation and taking advantage of ECMP (Equal-cost multi-path) and NIC hardware offload facilities.
+
+- The specification also offers options on how to support differentiated services and explicit congestion notification.
+
+- The data format supports all of the capabilities of VXLAN, NVGRE and STT, so eventually use of the three earlier formats may decline.
+
+---
+
+Transition to GENEVE will not be immediate. The other encapsulation methods have been in use for some time, and multiple methods can operate within the same system. However, GENEVE is being adopted as the default tunnelling protocol for OVN (Open Virtual Network) which in turn is being promoted as an implementation of OVS (OpenvSwitch) in future OpenStack releases.
+
+---
+
+- MACVLAN
+
+- IPVLAN
+
+- MACVTAP/IPVTAP
+
+- MACsec
+
+- VXCAN
+
+- ...
+
+.content-credits[https://developers.redhat.com/blog/2018/10/22/introduction-to-linux-interfaces-for-virtual-networking]
+
+---
+
+Overlay networks have the advantage of having minimal dependencies on the underlying network infrastructure, but have the downsides of:
+
+- having a small performance impact compared to non-overlay networking, which you might want to avoid if running network intensive workloads
+
+- workloads on the overlay are not easily addressable from the rest of the network. so NAT gateways or load balancers are required to bridge between the overlay and the underlay network for any ingress to, or egress from, the overlay.
+
+.content-credits[https://www.tigera.io/lp/kubernetes-networking-ebook/]
+
+---
+class: center, middle
+
+Nodes in the overlay network can be thought of as being connected by virtual or logical links, each of which corresponds to a path, perhaps through many physical links, in the underlying network.
+
+---
+class: center, middle
+
+"Ossification" of the internet architecture
+
+.content-credits[https://en.wikipedia.org/wiki/Protocol_ossification]
+
+---
+class: center, middle
+
+#### VPN
+
+---
+class: center, middle
+
+A virtual private network (VPN) extends a private network across a public network and enables users to send and receive data across shared or public networks as if their computing devices were directly connected to the private network.
+
+---
+class: center, middle
+
+![VPN](assets/images/vpn.png)
+
+---
+class: center, middle
+
+A VPN is created by establishing a virtual point-to-point connection through the use of dedicated circuits or with tunneling protocols over existing networks. A VPN available from the public Internet can provide some of the benefits of a wide area network (WAN). From a user perspective, the resources available within the private network can be accessed remotely.
+
+---
+class: center, middle
+
+VPN Classification
+
+![VPN Classification](assets/images/vpn-classification.png)
+
+---
+class: center, middle
+
+A limitation of traditional VPNs is that they are point-to-point connections and do not tend to support broadcast domains; therefore, communication, software, and networking, which are based on layer 2 and broadcast packets, such as NetBIOS used in Windows networking, may not be fully supported as on a local area network.
+
+---
+class: center, middle
+
+##### Network Virtualization vs VPN
+
+---
+
+- VPN is about creating a network pipe that is private, i.e., encrypted between the two end points of the VPN.
+
+- Network virtualisation is about creating a virtual network topology over the physical one.
+
+---
+class: center, middle
+
+Before we proceed...
+
+---
+class: center, middle
+
+### What happens when I run a container and expose a port?
+
+---
+class: center, middle
+
+```bash
+docker run -d -p 80:80 nginx
+```
+
+---
+
+#### Linux Network Namespaces
+
+Network namespaces is a part of containerization technology that is used by the Linux kernel to provide isolation between containers.
+
+It allows, for example, a container to have its own network stack, its own networking configuration, and its own routing configuration.
+
+---
+
+- The tool that is used to operate with `network ns`: `iproute2`
+
+- Network namespaces are stored in `/var/run/netns`
+
+- There are two types of network namespaces:
+
+  - Root namespace `ip link`
+  - Non-root namespace `ip netns .. ip link`
+
+---
+class: center, middle
+
+![Network ns](assets/images/network-ns.png)
+
+.content-credits[https://www.youtube.com/watch?v=QMNbgmxmB-M]
+
+---
+class: center, middle
+
+![Docker Networking Steps](assets/images/docker-networking-steps.png)
+
+.content-credits[https://www.youtube.com/watch?v=l2BS_kuQxBA]
+
+---
+class: center, middle
+
+Default docker networking mode: Bridge mode
+
+---
+class: center, middle
+
+A `Linux bridge` is a virtual implementation of a physical switch inside of the Linux kernel.
+
+It forwards packets between interfaces that are connected to it. It's usually used for forwarding packets on routers, on gateways, or between VMs and *network namespaces* on a host.
+
+It forwards traffic basing itself on MAC addresses, which are in turn discovered dynamically by inspecting traffic.
+
+---
+class: center, middle
+
+```bash
+bridge add <container-id> /var/run/netns/<namespace>
+```
+
+---
+class: center, middle
+
+![Bridge mode](assets/images/bridge-mode.png)
+
+.content-credits[https://www.youtube.com/watch?v=Slce9Nu-NB0]
+
+---
+class: center, middle
+
+*Demo*: `docker network`
+
+---
+class: center, middle
+
+### What about tools like Kubernetes, Swarm, Mesos, etc?
+
+---
+
+*For each container that is created, a virtual ethernet device is attached to this bridge, which is then mapped to `eth0` inside the container, with an ip within the aforementioned network range. Note that this will happen for each host that is running Docker, without any coordination between the hosts. Therefore, the network ranges might collide.*
+
+*Because of this, containers will only be able to communicate with containers that are connected to the same virtual bridge. In order to communicate with other containers on other hosts, they must rely on port-mapping. This means that you need to assign a port on the host machine to each container, and then somehow forward all traffic on that port to that container. What if your application needs to advertise its own IP address to a container that is hosted on another node? It doesn’t actually knows its real IP, since his local IP is getting translated into another IP and a port on the host machine. You can automate the port-mapping, but things start to get kinda complex when following this model.*
+
+.content-credits[https://blog.octo.com/en/how-does-it-work-docker-part-2-swarm-networking/]
+
+---
+class: center, middle
+
+![Networking Steps](assets/images/networking-steps.png)
+
+.content-credits[https://www.youtube.com/watch?v=l2BS_kuQxBA]
+
+---
+class: center, middle
+
+### Enter CNI
+
+![CNI logo](assets/images/cni-logo.png)
+
+---
+
+- Originated at `CoreOS` as part of `rkt` (deprecated)
+
+- Now a CNCF project
+
+---
+class: center, middle
+
+*CNI consists of a specification and libraries for writing plugins to configure network interfaces in Linux containers, along with a number of supported plugins. CNI concerns itself only with network connectivity of containers and removing allocated resources when the container is deleted. Because of this focus, CNI has a wide range of support and the specification is simple to implement.*
+
+.content-credits[https://github.com/containernetworking/cni]
+
+---
+class: center, middle
+
+CNI is used by container runtimes, such as Kubernetes (as shown below), as well as Podman, CRI-O, Mesos, and others.
+
+*To avoid duplication, we think it is prudent to define a common interface between the network plugins and container execution: hence we put forward this specification, along with libraries for Go and a set of plugins.*
+
+---
+
+#### What does the CNI project consist of?
+
+- CNI specifications - Documents what the configuration format is when you call the CNI plugin, what it should do with that information, and the result that plugin should return.
+
+- Set of reference and example plugins - These can help you understand how to write a new plugin or how existing plugins might work. They are cloud-agnostic. These are limited functionality plugins and just for reference.
+
+.content-credits[https://www.redhat.com/sysadmin/cni-kubernetes]
+
+---
+
+The container/pod initially has no network interface. The container runtime calls the CNI plugin with verbs such as ADD, DEL, CHECK, etc. ADD creates a new network interface for the container, and details of what is to be added are passed to CNI via JSON payload.
+
+- Container Runtime must create network namespace
+- Identify network the container must attach to
+- Container Runtime to invoke Network Plugin (bridge) when container is `ADD`ed
+- Container Runtime to invoke Network Plugin (bridge) when container is `DELETE`ed
+- JSON format of the network configuration
+
+.content-credits[https://www.youtube.com/watch?v=l2BS_kuQxBA]
+
+---
+
+#### Execution flow of the CNI plugins
+
+- When the container runtime expects to perform network operations on a container, it (like the `kubelet` in the case of K8s) calls the CNI plugin with the desired command.
+
+- The container runtime also provides related network configuration and container-specific data to the plugin.
+
+- The CNI plugin performs the required operations and reports the result.
+
+CNI is called twice by K8s (kubelet) to set up `loopback` and `eth0` interfaces for a pod.
+
+Note: CNI plugins are executable and support ADD, DEL, CHECK, VERSION commands, as discussed above.
+
+.content-credits[https://www.redhat.com/sysadmin/cni-kubernetes]
+
+---
+
+CNI must support:
+
+- Command line arguments ADD/DEL/CHECK
+- Parameters like: container id, network ns, etc...
+- Must manage IP address assignment to PODs
+- Must return results in a specific format
+
+---
+class: center, middle
+
+![Relation between Container Runtime & CNI](assets/images/relation-between-runtime-cni.png)
+
+.content-credits[https://www.youtube.com/watch?v=QMNbgmxmB-M]
+
+---
+
+Supported CNI plugins:
+
+- Bridge
+- VLAN
+- IPVLAN
+- MACVLAN
+- WINDOWS
+- Also IPAM plugins like: host-local, DHCP, ...
+
+---
+
+There are also 3rd party plugins:
+
+- Weave by weaveworks
+- Flannel by CoreOS
+- Calico project
+- NSX by VMWare
+- **Cilium by Cilium Inc**
+
+---
+
+#### Why are there multiple plugins?
+
+*CNI provides the specifications for various plugins. And as you know, networking is a complex topic with a variety of user needs. Hence, there are multiple CNI plugins that do things differently to satisfy various use cases.*
+
+.content-credits[https://www.redhat.com/sysadmin/cni-kubernetes]
+
+---
+class: center, middle
+
+*Disclaimer* Docker doesn't use CNI, it uses Container Network Model (CNM) aka *Libnetwork*
+
+---
+class: center, middle
+
+![CNM & CNI Networking Plugins & respective frameworks](assets/images/cnm-cni-networking-plugins.png)
+
+.content-credits[https://www.youtube.com/watch?v=QMNbgmxmB-M]
+
+---
+
+#### Challenges
+
+- Updates to existing network configuration?
+
+- Every runtime needs a different plugin?
+
+- Security & QoS policies?
+
+---
+class: center, middle
+
+Kubernetes chose simplicity and skipped the dynamic port-allocation deal. It just assumes that all containers can communicate with each other without Network Address Translation (NAT), that all containers can communicate with each node (and vice-versa), and that the IP that a container sees for itself is the same that the other containers see for it
+
+.content-credits[https://blog.octo.com/en/how-does-it-work-docker-part-2-swarm-networking/]
+
+---
+class: center, middle
+
+Some of the newer CNI plugins depend on a kernel module.
+
+---
+class: center, middle
+
+### eBPF
+
+.content-credits[https://ebpf.io/]
+
+---
+class: center, middle
+
+*A new Linux kernel technology called eBPF is at the foundation of several CNI plugins. It supports dynamic insertion of eBPF bytecode into the Linux kernel at various integration points such as: network IO, application sockets, and tracepoints to implement security, networking and visibility logic. eBPF is highly efficient and flexible.*
+
+---
+class: center, middle
+
+eBPF is a Linux kernel bytecode interpreter originally introduced to filter network packets, e.g. tcpdump and socket filters.
+
+---
+class: center, middle
+
+*eBPF stands for extended Berkeley Packet Filter.*
+
+---
+class: center, middle
+
+eBPF is enabling visibility into and control over systems and applications at a granularity and efficiency that was not possible before. It does so in a completely transparent way, without requiring the application to change in any way. eBPF is equally well-equipped to handle modern containerized workloads as well as more traditional workloads such as virtual machines and standard Linux processes.
+
+---
+
+- It has since been extended with additional data structures such as hashtable and arrays as well as additional actions to support packet mangling, forwarding, encapsulation, etc.
+
+- An in-kernel verifier ensures that eBPF programs are safe to run and a JIT compiler converts the bytecode to CPU architecture specific instructions for native execution efficiency. eBPF programs can be run at various hooking points in the kernel such as for incoming and outgoing packets.
+
+- By relying on eBPF, all visibility is programmable and allows for a dynamic approach that minimizes overhead while providing deep and detailed visibility as required by users.
+
+- eBPF continues to evolve and gain additional capabilities with each new Linux release.
+
+---
+class: center, middle
+
+BPF is a general purpose RISC instruction set and was originally designed for the purpose of writing programs in a subset of C which can be compiled into BPF instructions through a compiler back end (e.g. LLVM), so that the kernel can later on map them through an in-kernel JIT compiler into native opcodes for optimal execution performance inside the kernel.
+
+---
+
+#### Advantages of BPF
+
+- Making the kernel programmable without having to cross kernel / user space boundaries. For example, BPF programs related to networking, as in the case of Cilium, can implement flexible container policies, load balancing and other means without having to move packets to user space and back into the kernel. State between BPF programs and kernel / user space can still be shared through maps whenever needed.
+
+- Given the flexibility of a programmable data path, programs can be heavily optimized for performance also by compiling out features that are not required for the use cases the program solves. For example, if a container does not require IPv4, then the BPF program can be built to only deal with IPv6 in order to save resources in the fast-path.
+
+---
+
+#### Advantages of BPF (continued...)
+
+- In case of networking (e.g. tc and XDP), BPF programs can be updated atomically without having to restart the kernel, system services or containers, and without traffic interruptions. Furthermore, any program state can also be maintained throughout updates via BPF maps.
+
+- BPF provides a stable ABI towards user space, and does not require any third party kernel modules. BPF is a core part of the Linux kernel that is shipped everywhere, and guarantees that existing BPF programs keep running with newer kernel versions. This guarantee is the same guarantee that the kernel provides for system calls with regard to user space applications. Moreover, BPF programs are portable across different architectures.
+
+---
+
+#### Advantages of BPF (continued)
+
+- BPF programs work in concert with the kernel, they make use of existing kernel infrastructure (e.g. drivers, netdevices, tunnels, protocol stack, sockets) and tooling (e.g. iproute2) as well as the safety guarantees which the kernel provides. Unlike kernel modules, BPF programs are verified through an in-kernel verifier in order to ensure that they cannot crash the kernel, always terminate, etc. XDP programs, for example, reuse the existing in-kernel drivers and operate on the provided DMA buffers containing the packet frames without exposing them or an entire driver to user space as in other models. Moreover, XDP programs reuse the existing stack instead of bypassing it. BPF can be considered a generic “glue code” to kernel facilities for crafting programs to solve specific use cases.
+
+---
+class: center, middle
+
+*The execution of a BPF program inside the kernel is always event-driven!*
+
+---
+
+#### Events like
+
+- A networking device which has a BPF program attached on its ingress path will trigger the execution of the program once a packet is received.
+
+- A kernel address which has a `kprobe` with a BPF program attached will trap once the code at that address gets executed, which will then invoke the `kprobe`’s callback function for instrumentation, subsequently triggering the execution of the attached BPF program.
+
+---
+class: center, middle
+
+#### Sample BPF program
+
+![Sample eBPF program](assets/images/ebpf-sample-program.png)
+
+.content-credits[https://www.youtube.com/watch?v=Kmm8Hl57WDU]
+
+---
+class: center, middle
+
+e**X**press **D**ata **P**ath
+
+---
+class: center, middle
+
+*The XDP BPF hook is at the earliest point possible in the networking driver and triggers a run of the BPF program upon packet reception.*
+
+---
+class: center, middle
+
+This achieves the best possible packet processing performance since the program runs directly on the packet data before any other processing can happen. This hook is ideal for running filtering programs that drop malicious or unexpected traffic, and other common DDOS protection mechanisms.
+
+*XDP is a further step in evolution of BPF and enables to run a specific flavor of BPF programs from the network driver with direct access to the packet's DMA buffer.*
+
+---
+class: center, middle
+
+![OSI Layers](assets/images/osi-layers.png)
+
+---
+
+class: center, middle
+
+#### Default Network path (Layer 1)
+
+![network-path-layer-1](assets/images/network-path-layer-1.png)
+
+.content-credits[https://www.youtube.com/watch?v=Kmm8Hl57WDU]
+
+---
+class: center, middle
+
+#### Default Network path (Layer 2)
+
+![network-path-layer-2](assets/images/network-path-layer-2.png)
+
+.content-credits[https://www.youtube.com/watch?v=Kmm8Hl57WDU]
+
+---
+class: center, middle
+
+![BPF Offload](assets/images/bpf_offload.png)
+
+*Networking programs in BPF, in particular for `tc` and `XDP` do have an offload-interface to hardware in the kernel in order to execute BPF code directly on the NIC.*
+
+---
+class: center, middle
+
+#### Default Network path (Layer 2 & 3)
+
+![network-path-layer-2-3](assets/images/network-path-layer-2-3.png)
+
+.content-credits[https://www.youtube.com/watch?v=Kmm8Hl57WDU]
+
+---
+class: center, middle
+
+#### Default Network path (Layer 3 & 4)
+
+![network-path-layer-3-4](assets/images/network-path-layer-3-4.png)
+
+.content-credits[https://www.youtube.com/watch?v=Kmm8Hl57WDU]
+
+---
+class: center, middle
+
+#### Default Network path (Layer 4)
+
+![network-path-layer-4](assets/images/network-path-layer-4.png)
+
+.content-credits[https://www.youtube.com/watch?v=Kmm8Hl57WDU]
+
+---
+class: center, middle
+
+#### Default Network path (Layer 4 - User Space)
+
+![network-path-layer-4-user-space](assets/images/network-path-layer-4-user-space.png)
+
+.content-credits[https://www.youtube.com/watch?v=Kmm8Hl57WDU]
+
+---
+class: center, middle
+
+![eBPF Program with Kernel](assets/images/ebpf-kernel.png)
+
+.content-credits[https://www.youtube.com/watch?v=Kmm8Hl57WDU]
+
+---
+class: center, middle
+
+![eBPF JIT](assets/images/ebpf-jit.png)
+
+.content-credits[https://github.com/cilium/cilium#what-is-ebpf-and-xdp]
 
 ---
 class: center, middle
