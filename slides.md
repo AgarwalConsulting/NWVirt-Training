@@ -2166,6 +2166,11 @@ class: center, middle
 ---
 class: center, middle
 
+![OF Abstractions](assets/images/of-abstractions.png)
+
+---
+class: center, middle
+
 Code
 https://github.com/AgarwalConsulting/NWVirt-Training
 
