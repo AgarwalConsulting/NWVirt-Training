@@ -2786,6 +2786,11 @@ class: center, middle
 ---
 class: center, middle
 
+*Experiment*: [Docker-OVS Integration](https://bitbucket.org/snrism/containet)
+
+---
+class: center, middle
+
 ### What about tools like Kubernetes, Swarm, Mesos, etc?
 
 ---
