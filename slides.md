@@ -1932,7 +1932,7 @@ The first SDN controller was *NOX*, which was initially developed by *Nicira* Ne
 
 - Open Source, stable, widely used
 
-- Two "flabors" of NOX
+- Two "flavors" of NOX
 
   - *NOX-Classic*: C++/Python. No longer supported
 
