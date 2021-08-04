@@ -3137,6 +3137,14 @@ The main bypass technologies are either based on a limited set of features such 
 ---
 class: center, middle
 
+OVS, also, directly supports eBPF.
+
+.content-credits[https://docs.openvswitch.org/en/latest/intro/install/afxdp/]
+<!-- .content-credits[http://vger.kernel.org/lpc_net2018_talks/ovs-ebpf-afxdp.pdf] -->
+
+---
+class: center, middle
+
 ### SDN & N/W Virtualization
 
 ---
