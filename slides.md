@@ -2151,6 +2151,11 @@ class: center, middle
 ---
 class: center, middle
 
+*Challenge*: [Firewall](https://github.com/AgarwalConsulting/NWVirt-Training/tree/master/challenges/02-controller)
+
+---
+class: center, middle
+
 Code
 https://github.com/AgarwalConsulting/NWVirt-Training
 
