@@ -2166,6 +2166,23 @@ class: center, middle
 ---
 class: center, middle
 
+A *middlebox* is a computer networking device that transforms, inspects, filters, and manipulates traffic for purposes other than packet forwarding.
+
+---
+
+Examples of middleboxes include
+
+- firewalls
+
+- network address translators (NATs)
+
+- load balancers
+
+- and deep packet inspection (DPI) boxes.
+
+---
+class: center, middle
+
 ![OF Abstractions](assets/images/of-abstractions.png)
 
 ---
