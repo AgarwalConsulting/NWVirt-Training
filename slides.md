@@ -1916,6 +1916,8 @@ class: center, middle
 
 #### NOX
 
+.content-credits[https://github.com/noxrepo/nox]
+
 ---
 class: center, middle
 
@@ -2127,8 +2129,14 @@ class: center, middle
 - We can use `dpctl`
 
 ---
+class: center, middle
 
+#### Setup POX
 
+---
+class: center, middle
+
+*Demo*: Hub
 
 ---
 class: center, middle
