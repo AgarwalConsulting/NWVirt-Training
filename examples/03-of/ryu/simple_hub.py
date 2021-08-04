@@ -21,4 +21,3 @@ class SimpleSwitch(app_manager.RyuApp):
             datapath=datapath, buffer_id=msg.buffer_id, in_port=msg.in_port,
             actions=actions, data=None)
         datapath.send_msg(out)
-
