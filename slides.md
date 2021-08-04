@@ -1892,6 +1892,26 @@ There are many different implementations of the OpenFlow specification. These ar
 - Trema
 
 ---
+
+### Considerations for choosing a controller
+
+- Programming Language (can affect performance)
+
+- Learning curve
+
+- User base & community support
+
+- Focus
+
+  - Southbound API
+
+  - Northbound API / "Policy Layer"
+
+  - Support for OpenStack
+
+  - Education, Research or Production?
+
+---
 class: center, middle
 
 #### NOX
@@ -1900,6 +1920,215 @@ class: center, middle
 class: center, middle
 
 The first SDN controller was *NOX*, which was initially developed by *Nicira* Networks, alongside OpenFlow.
+
+---
+
+- Open Source, stable, widely used
+
+- Two "flabors" of NOX
+
+  - *NOX-Classic*: C++/Python. No longer supported
+
+  - *NOX* (the "new NOX")
+
+---
+
+- "new NOX"
+
+  - C++ only
+
+  - Fast, clean codebase
+
+  - Well maintained & supported
+
+---
+
+NOX supports OpenFlow v1.0
+
+- A fork (CPqD) supports 1.1, 1.2, & 1.3
+
+- Programming model
+
+  - Controller registers for events
+
+  - Programmer writes event handler
+
+---
+
+- Gives good performance
+
+- Good
+
+  - if you know C++
+
+  - willing to use low-level facilities and semantics of OpenFlow
+
+---
+class: center, middle
+
+#### POX
+
+---
+class: center, middle
+
+Essentially NOX in Python
+
+---
+class: center, middle
+
+Supports OpenFlow v1.0 only
+
+.content-credits[https://noxrepo.github.io/pox-doc/html/#what-versions-of-openflow-does-pox-support]
+
+---
+
+- Advantages
+
+  - Widely used, maintained, supported
+
+  - Relatively easy to read and write code
+
+- Disadvantages
+
+  - Performance
+
+---
+
+- Rapid prototyping & experimentation
+
+  - Research, experimentation, demonstrations
+
+  - Learning concepts
+
+---
+class: center, middle
+
+#### Ryu
+
+---
+
+- Open source Python controller
+
+  - Ryu supports fully 1.0, 1.2, 1.3, 1.4, 1.5 and Nicira Extensions.
+
+  - Works with OpenStack
+
+- Aims to be an "Operating System" for SDN
+
+.content-credits[https://ryu-sdn.org/]
+
+---
+
+- Advantages
+
+  - OpenStack Integration, OpenFlow 1.2-1.5
+
+- Disadvantages
+
+  - Performance
+
+---
+class: center, middle
+
+#### Floodlight
+
+.content-credits[https://floodlight.atlassian.net/wiki/spaces/floodlightcontroller/pages/8650780/Floodlight+VM]
+
+---
+
+- Open-source Java controller
+
+  - Supports OpenFlow v1.0
+
+  - Fork from "Beacon" Java OpenFlow controller
+
+  - Maintained by *Big Switch Networks*
+
+---
+
+- Advantages
+
+  - Good documentation
+
+  - Integration with REST API
+
+  - Production-level, OpenStack/Multi-Tenant clouds
+
+- Disadvantages
+
+  - Steep learning curve
+
+---
+
+- You need production-level performance & support
+
+- You will use the REST API to interact with the controller
+
+---
+class: center, middle
+
+#### OpenDaylight
+
+.content-credits[https://www.opendaylight.org/]
+
+---
+
+- Common industry supported platforms
+
+  - Robust, extensible open source codebase
+
+  - Common abstractions for northbound capabilities
+
+---
+
+- Advantages
+
+  - Industry acceptance, integration with OpenStack, cloud applications, etc.
+
+- Disadvantages
+
+  - Complex, steep learning curve
+
+---
+class: center, middle
+
+Similar to *HP VAN*
+
+---
+class: center, middle
+
+![OF Controller Comparison](assets/images/of-controller-comparison.png)
+
+---
+
+Choice of controller is a trade-off between:
+
+- Needs
+
+- Programming Language
+
+- Performance
+
+---
+class: center, middle
+
+### Using SDN controllers to Customize control
+
+---
+
+- POX Controller & simple Mininet topology
+
+- Two types of control
+
+  - Hub
+
+  - Learning switch
+
+- We can use `dpctl`
+
+---
+
+
 
 ---
 class: center, middle
