@@ -2146,6 +2146,16 @@ class: center, middle
 ---
 class: center, middle
 
+![Hub 1](assets/images/pox-hub/hub-1.png)
+
+---
+class: center, middle
+
+![Hub 2](assets/images/pox-hub/hub-2.png)
+
+---
+class: center, middle
+
 *Demo*: [Learning Switch](https://github.com/AgarwalConsulting/NWVirt-Training/tree/master/examples/03-of/pox/learning)
 
 ---
