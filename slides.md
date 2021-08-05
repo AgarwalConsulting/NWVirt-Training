@@ -3412,6 +3412,18 @@ VNF (virtualized network function) replaces a vendor’s specialized hardware wi
 ---
 class: center, middle
 
+### Configuring Data Plane
+
+---
+class: center, middle
+
+P4 is a programming language for processing network packets.
+
+.content-credits[https://p4.org/]
+
+---
+class: center, middle
+
 ### Virtualization in the Data Center
 
 ---
@@ -3420,10 +3432,53 @@ class: center, middle
 ![DC](assets/images/dc-hv.png)
 
 ---
+class: center, middle
+
+Single physical datacenter shared by many "tenant" users
+
+---
 
 VMware NSX Data Center is a network virtualization platform that delivers networking and security components like firewalling, switching, and routing that are defined and consumed in software. NSX takes an architectural approach built on scale-out network virtualization that delivers consistent, pervasive connectivity and security for apps and data wherever they reside, independent of underlying physical infrastructure.
 
 .content-credits[https://www.vmware.com/products/nsx.html]
+
+---
+class: center, middle
+
+#### VPC
+
+---
+class: center, middle
+
+A virtual private cloud (VPC) is a secure, isolated private cloud hosted within a public cloud. VPC customers can run code, store data, host websites, and do anything else they could do in an ordinary private cloud, but the private cloud is hosted remotely by a public cloud provider. (Not all private clouds are hosted in this fashion.) VPCs combine the scalability and convenience of public cloud computing with the data isolation of private cloud computing.
+
+---
+class: center, middle
+
+![VPC](assets/images/vpc.png)
+
+---
+
+The key technologies for isolating a VPC
+
+- Subnets
+
+- VLAN
+
+- VPN
+
+---
+
+Some VPC providers offer additional customization with:
+
+- Network Address Translation (NAT): This feature matches private IP addresses to a public IP address for connections with the public Internet. With NAT, a public-facing website or application could run in a VPC.
+
+- [BGP](https://www.cloudflare.com/learning/security/glossary/what-is-bgp/) route configuration: Some providers allow customers to customize BGP routing tables for connecting their VPC with their other infrastructure.
+
+---
+class: center, middle
+
+*Case Study*: [AWS VPC](https://docs.aws.amazon.com/vpc/latest/userguide/how-it-works.html)
 
 ---
 class: center, middle
