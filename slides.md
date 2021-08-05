@@ -3240,6 +3240,13 @@ class: center, middle
 ---
 class: center, middle
 
+![NV SDN](assets/images/nv-sdn.png)
+
+.image-credits[https://bradhedlund.com/2011/10/12/network-virtualization-is-like-a-big-virtual-chassis/]
+
+---
+class: center, middle
+
 #### Slicing Network Control
 
 ---
@@ -3250,7 +3257,7 @@ Network slicing divides the production network into logical slices, such that, e
 ---
 class: center, middle
 
-![Network slicing](assets/images/slicing.png)]
+![Network slicing](assets/images/slicing.png)
 
 ---
 class: center, middle
@@ -3270,6 +3277,11 @@ class: center, middle
 - FlowVisor enforces isolation between each slice, i.e., one slice cannot control another's traffic
 
 ---
+class: center, middle
+
+![Slice control plane](assets/images/slice-control-plane.png)
+
+---
 
 From FlowVisor README:
 
@@ -3281,6 +3293,11 @@ class: center, middle
 FlowVisor slices a physical network into abstracted units of bandwidth, topology, traffic and network device central processing units (CPUs). It operates as a transparent proxy controller between the physical switches of an OpenFlow network and other OpenFlow controllers and enables multiple controllers to operate the same physical infrastructure.
 
 ---
+class: center, middle
+
+![Flow Visor](assets/images/flow-visor-of.png)
+
+---
 
 - The SDN research community considers FlowVisor an experimental technology, although Stanford University, a leading SDN research institution, has run FlowVisor in its production network since 2009.
 
@@ -3289,6 +3306,16 @@ FlowVisor slices a physical network into abstracted units of bandwidth, topology
 - It currently has no command line interface or Web-based administration console.
 
 - Instead, users make changes to the technology with configuration file updates.
+
+---
+class: center, middle
+
+#### Flow Space
+
+---
+class: center, middle
+
+![Flow Space](assets/images/flow-space.png)
 
 ---
 class: center, middle
