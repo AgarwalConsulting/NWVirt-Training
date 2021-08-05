@@ -2620,6 +2620,7 @@ class: center, middle
 - The data format supports all of the capabilities of VXLAN, NVGRE and STT, so eventually use of the three earlier formats may decline.
 
 ---
+class: center, middle
 
 Transition to GENEVE will not be immediate. The other encapsulation methods have been in use for some time, and multiple methods can operate within the same system. However, GENEVE is being adopted as the default tunnelling protocol for OVN (Open Virtual Network) which in turn is being promoted as an implementation of OVS (OpenvSwitch) in future OpenStack releases.
 
@@ -3412,6 +3413,27 @@ VNF (virtualized network function) replaces a vendor’s specialized hardware wi
 ---
 class: center, middle
 
+#### NFV vs SDN
+
+---
+class: center, middle
+
+NFV refers to the virtualization of network components, while SDN refers to a network architecture that injects automation and programmability into the network by decoupling network control and forwarding functions.
+
+---
+
+- NFV virtualizes network infrastructure
+
+- SDN centralizes network control.
+
+---
+class: center, middle
+
+Combined, SDN and NFV create a network that is built, operated, and managed by software.
+
+---
+class: center, middle
+
 ### Configuring Data Plane
 
 ---
@@ -3437,6 +3459,21 @@ class: center, middle
 Single physical datacenter shared by many "tenant" users
 
 ---
+class: center, middle
+
+Nicira was a network virtualization company and is now a key component of VMware’s Software Defined Data Center strategy.
+
+Nicira’s Network Virtualization Platform (NVP) enables the dynamic creation of virtual network infrastructure and services that are completely decoupled and independent from the physical network hardware. Innovative companies such as AT&T, DreamHost, eBay, NTT and Rackspace used Nicira NVP to accelerate service delivery from weeks to minutes and dramatically reduce data center complexity and cost.
+
+---
+class: center, middle
+
+![NVP Acquisition](assets/images/nicira-acquisition.png)
+
+.content-credits[https://www.vmware.com/in/company/acquisitions/nicira.html]
+
+---
+class: center, middle
 
 VMware NSX Data Center is a network virtualization platform that delivers networking and security components like firewalling, switching, and routing that are defined and consumed in software. NSX takes an architectural approach built on scale-out network virtualization that delivers consistent, pervasive connectivity and security for apps and data wherever they reside, independent of underlying physical infrastructure.
 
