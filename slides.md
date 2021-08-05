@@ -2213,6 +2213,17 @@ class: center, middle
 ---
 class: center, middle
 
+`Network Virtualization != SDN`
+
+---
+
+- Predates SDN
+
+- Doesn't require SDN
+
+---
+class: center, middle
+
 Network Virtualization can combine multiple physical networks to one virtual, software-based network, or it can divide one physical network into separate, independent virtual networks.
 
 ---
