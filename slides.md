@@ -3415,6 +3415,12 @@ class: center, middle
 ![DC](assets/images/dc-hv.png)
 
 ---
+
+VMware NSX Data Center is a network virtualization platform that delivers networking and security components like firewalling, switching, and routing that are defined and consumed in software. NSX takes an architectural approach built on scale-out network virtualization that delivers consistent, pervasive connectivity and security for apps and data wherever they reside, independent of underlying physical infrastructure.
+
+.content-credits[https://www.vmware.com/products/nsx.html]
+
+---
 class: center, middle
 
 Code
