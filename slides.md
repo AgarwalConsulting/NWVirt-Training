@@ -3251,9 +3251,9 @@ class: center, middle
 ---
 class: center, middle
 
-![NV SDN](assets/images/nv-sdn.png)
+![NV SDN](assets/images/sdn-nv.jpg)
 
-.image-credits[https://bradhedlund.com/2011/10/12/network-virtualization-is-like-a-big-virtual-chassis/]
+.image-credits[https://www.enterprisenetworkingplanet.com/data-center/network-virtualization-shooting-star-or-brave-new-world/]
 
 ---
 class: center, middle
