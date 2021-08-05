@@ -3331,7 +3331,88 @@ class: center, middle
 ---
 class: center, middle
 
+![2 layer controller](assets/images/2-layer-controller.png)
+
+---
+class: center, middle
+
 ### NFV
+
+---
+class: center, middle
+
+NFV stands for Network Function Virtualization.
+
+---
+class: center, middle
+
+![NFV](assets/images/nfv.png)
+
+---
+class: center, middle
+
+NFV enables network operators to implement modular network functions
+
+---
+
+- Not worry about "how" & "where" to install network functions
+
+- Add custom middlebox functions inside network data plane
+
+---
+
+#### Use cases for NFV
+
+- Virtualized services for enterprises
+
+- Virtual CDNs
+
+- Virtualized mobile core networks
+
+- Integrate production/testing
+
+---
+
+Functional Elements, not Middleboxes
+
+---
+
+#### "Middleboxes" with NFV
+
+- `WAN Optimizer` = Caching + Deduplication + Compression + Encryption + Forward Error Correction + Rate Limiter
+
+- `Application Firewall` = IP Defragmenter + Application Detection Engine + Logger + Blocker
+
+- `Snort` = IP Defragmenter + Preprocessing + Misuse Detection Engine + Logger
+
+---
+class: center, middle
+
+![NFV Arch](assets/images/nfv-arch.jpg)
+
+---
+
+#### Benefits of NFV
+
+- Reduced Capex
+
+- Reduced time to market
+
+- Elastic scaling
+
+- Targeted services
+
+- Vendor neutrality
+
+---
+class: center, middle
+
+### Virtualization in the Data Center
+
+---
+class: center, middle
+
+![DC](assets/images/dc-hv.png)
 
 ---
 class: center, middle
