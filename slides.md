@@ -3298,16 +3298,6 @@ class: center, middle
 ![Flow Visor](assets/images/flow-visor-of.png)
 
 ---
-
-- The SDN research community considers FlowVisor an experimental technology, although Stanford University, a leading SDN research institution, has run FlowVisor in its production network since 2009.
-
-- FlowVisor lacks some of the basic network management interfaces that would make it enterprise-grade.
-
-- It currently has no command line interface or Web-based administration console.
-
-- Instead, users make changes to the technology with configuration file updates.
-
----
 class: center, middle
 
 #### Flow Space
@@ -3316,6 +3306,16 @@ class: center, middle
 class: center, middle
 
 ![Flow Space](assets/images/flow-space.png)
+
+---
+
+- The SDN research community considers FlowVisor an experimental technology, although Stanford University, a leading SDN research institution, has run FlowVisor in its production network since 2009.
+
+- FlowVisor lacks some of the basic network management interfaces that would make it enterprise-grade.
+
+- It currently has no command line interface or Web-based administration console.
+
+- Instead, users make changes to the technology with configuration file updates.
 
 ---
 class: center, middle
