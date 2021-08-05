@@ -3391,6 +3391,11 @@ class: center, middle
 ![NFV Arch](assets/images/nfv-arch.jpg)
 
 ---
+class: center, middle
+
+VNF (virtualized network function) replaces a vendor’s specialized hardware with systems performing the same function, yet running on a generic hardware.
+
+---
 
 #### Benefits of NFV
 
