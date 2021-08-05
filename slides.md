@@ -2781,6 +2781,74 @@ class: center, middle
 
 ### What about Mininet?
 
+---
+class: center, middle
+
+![Mininet 01](assets/images/mn/01.png)
+
+.content-credits[https://github.com/wiki/mininet/mininet/pdf/mininet-hotnets2010-final.pdf]
+
+---
+class: center, middle
+
+![Mininet 02](assets/images/mn/02.png)
+
+.content-credits[https://github.com/wiki/mininet/mininet/pdf/mininet-hotnets2010-final.pdf]
+
+---
+class: center, middle
+
+![Mininet 03](assets/images/mn/03.png)
+
+.content-credits[https://github.com/wiki/mininet/mininet/pdf/mininet-hotnets2010-final.pdf]
+
+---
+class: center, middle
+
+![Mininet 04](assets/images/mn/04.png)
+
+.content-credits[https://github.com/wiki/mininet/mininet/pdf/mininet-hotnets2010-final.pdf]
+
+---
+class: center, middle
+
+![Mininet 05](assets/images/mn/05.png)
+
+.content-credits[https://github.com/wiki/mininet/mininet/pdf/mininet-hotnets2010-final.pdf]
+
+---
+class: center, middle
+
+![Mininet 06](assets/images/mn/06.png)
+
+.content-credits[https://github.com/wiki/mininet/mininet/pdf/mininet-hotnets2010-final.pdf]
+
+---
+class: center, middle
+
+![Mininet 07](assets/images/mn/07.png)
+
+.content-credits[https://github.com/wiki/mininet/mininet/pdf/mininet-hotnets2010-final.pdf]
+
+---
+class: center, middle
+
+![Mininet 08](assets/images/mn/08.png)
+
+.content-credits[https://github.com/wiki/mininet/mininet/pdf/mininet-hotnets2010-final.pdf]
+
+---
+class: center, middle
+
+![Mininet 09](assets/images/mn/09.png)
+
+.content-credits[https://github.com/wiki/mininet/mininet/pdf/mininet-hotnets2010-final.pdf]
+
+---
+class: center, middle
+
+![Mininet 10](assets/images/mn/10.png)
+
 .content-credits[https://github.com/wiki/mininet/mininet/pdf/mininet-hotnets2010-final.pdf]
 
 ---
@@ -3221,6 +3289,11 @@ FlowVisor slices a physical network into abstracted units of bandwidth, topology
 - It currently has no command line interface or Web-based administration console.
 
 - Instead, users make changes to the technology with configuration file updates.
+
+---
+class: center, middle
+
+### NFV
 
 ---
 class: center, middle
