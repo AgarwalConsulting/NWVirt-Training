@@ -3392,9 +3392,14 @@ class: center, middle
 ![NFV Arch](assets/images/nfv-arch.jpg)
 
 ---
-class: center, middle
 
-VNF (virtualized network function) replaces a vendor’s specialized hardware with systems performing the same function, yet running on a generic hardware.
+The NFV framework consists of three main components:
+
+- Virtualized network functions (VNFs) are software implementations of network functions that can be deployed on a network functions virtualization infrastructure (NFVI).
+
+- Network functions virtualization infrastructure (NFVI) is the totality of all hardware and software components that build the environment where NFVs are deployed. The NFV infrastructure can span several locations. The network providing connectivity between these locations is considered as part of the NFV infrastructure.
+
+- Network functions virtualization management and orchestration architectural framework (NFV-MANO Architectural Framework) is the collection of all functional blocks, data repositories used by these blocks, and reference points and interfaces through which these functional blocks exchange information for the purpose of managing and orchestrating NFVI and VNFs.
 
 ---
 
